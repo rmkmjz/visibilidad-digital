@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visibilidad Digital Cuba - Landing Pages Profesionales</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== VARIABLES Y RESET ===== */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --success: #2ecc71;
+            --light: #f8f9fa;
+            --dark: #1a252f;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+            --border-radius: 10px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        h1, h2, h3, h4 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--secondary);
+            cursor: pointer;
+            font-size: 1rem;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            border-color: #25D366;
+        }
+        
+        .btn-whatsapp:hover {
+            color: #25D366;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--secondary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .highlight {
+            color: var(--accent);
+            font-weight: 700;
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        /* ===== HEADER / HERO ===== */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,0V100H1000V0C750,50 250,50 0,0Z" fill="%23f8f9fa"/></svg>');
+            background-size: 100% auto;
+            background-position: bottom;
+            opacity: 0.05;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        /* ===== SISTEMA DE PESTAÑAS ===== */
+        .tabs-container {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        
+        .tabs-header {
+            display: flex;
+            background: #f1f8ff;
+            border-bottom: 1px solid #e0e0e0;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 20px;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+        }
+        
+        .tab-btn:hover {
+            background: rgba(52, 152, 219, 0.1);
+            color: var(--secondary);
+        }
+        
+        .tab-btn.active {
+            color: var(--secondary);
+            background: white;
+        }
+        
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .tabs-content {
+            padding: 40px;
+        }
+        
+        .tab-pane {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .tab-pane.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* ===== SERVICIOS ===== */
+        #servicios {
+            background: linear-gradient(to bottom, #f8f9fa 0%, #fff 100%);
+        }
+        
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .servicio-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            border-top: 5px solid var(--secondary);
+        }
+        
+        .servicio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .servicio-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            display: inline-block;
+            height: 80px;
+            width: 80px;
+            line-height: 80px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 50%;
+        }
+        
+        /* ===== PORTFOLIO ===== */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .portfolio-item {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .portfolio-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        
+        .portfolio-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.1) 100%);
+        }
+        
+        .portfolio-content {
+            padding: 30px;
+        }
+        
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .tag {
+            background: rgba(52, 152, 219, 0.1);
+            color: var(--secondary);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        /* ===== PRECIOS ===== */
+        #precios {
+            background: linear-gradient(to bottom, #fff 0%, #f8f9fa 100%);
+        }
+        
+        .precios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .precio-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .precio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .precio-card.popular {
+            border-color: var(--secondary);
+            transform: scale(1.05);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .precio-amount {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 20px 0;
+        }
+        
+        .precio-periodo {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+        
+        .precio-features {
+            list-style: none;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        
+        .precio-features li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .precio-features li i {
+            color: var(--success);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .precio-features li.disabled {
+            color: #999;
+        }
+        
+        .precio-features li.disabled i {
+            color: #ccc;
+        }
+        
+        /* ===== FAQ ===== */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .faq-question {
+            padding: 25px 30px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8f9fa;
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            background: #f1f8ff;
+        }
+        
+        .faq-question i {
+            transition: var(--transition);
+        }
+        
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-answer.open {
+            padding: 25px 30px;
+            max-height: 1000px;
+        }
+        
+        /* ===== PROCESO ===== */
+        .proceso-timeline {
+            max-width: 900px;
+            margin: 50px auto 0;
+            position: relative;
+        }
+        
+        .proceso-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--secondary);
+            transform: translateX(-50%);
+        }
+        
+        .proceso-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .proceso-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+        
+        .proceso-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            z-index: 1;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .proceso-content {
+            width: 45%;
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .proceso-item:nth-child(odd) .proceso-content {
+            margin-left: auto;
+        }
+        
+        /* ===== CTA ===== */
+        #cta {
+            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        #cta h2 {
+            color: white;
+        }
+        
+        #cta p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark);
+            color: #bbb;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-section p {
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-item i {
+            color: var(--secondary);
+            width: 20px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #34495e;
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .precio-card.popular {
+                transform: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .tabs-header {
+                flex-direction: column;
+            }
+            
+            .tab-btn {
+                min-width: 100%;
+                border-bottom: 1px solid #e0e0e0;
+            }
+            
+            .tab-btn.active::after {
+                width: 5px;
+                height: 100%;
+                top: 0;
+                left: 0;
+                bottom: 0;
+            }
+            
+            .proceso-timeline::before {
+                left: 30px;
+            }
+            
+            .proceso-item {
+                flex-direction: row !important;
+            }
+            
+            .proceso-icon {
+                left: 30px;
+            }
+            
+            .proceso-content {
+                width: calc(100% - 90px);
+                margin-left: 90px !important;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            header {
+                padding: 80px 0;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .tabs-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header / Hero -->
+    <header>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Landing Pages Profesionales para Negocios Cubanos</h1>
+                <p class="hero-subtitle">Tu vitrina digital 24/7 que atrae clientes y genera ventas. Inversión única, resultados permanentes.</p>
+                <div class="hero-btns">
+                    <a href="#servicios" class="btn">Ver Servicios</a>
+                    <a href="https://wa.me/5351234567?text=Hola,%20quiero%20más%20información%20sobre%20las%20Landing%20Pages" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Consultar por WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de Servicios con Pestañas -->
+    <section id="servicios">
+        <div class="container">
+            <h2 class="section-title text-center">Servicios Profesionales</h2>
+            <p class="text-center">Ofrezco soluciones digitales completas diseñadas específicamente para el mercado cubano y sus necesidades reales.</p>
+            
+            <div class="tabs-container">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="landing">Landing Pages</button>
+                    <button class="tab-btn" data-tab="seo">SEO Básico</button>
+                    <button class="tab-btn" data-tab="hosting">Hosting Gratuito</button>
+                    <button class="tab-btn" data-tab="mantenimiento">Mantenimiento</button>
+                </div>
+                
+                <div class="tabs-content">
+                    <div class="tab-pane active" id="tab-landing">
+                        <h3>Landing Pages de Alto Impacto</h3>
+                        <p>Diseño y desarrollo de páginas web estáticas optimizadas para conversión. Cada landing page incluye:</p>
+                        <div class="servicios-grid">
+                            <div class="servicio-card">
+                                <div class="servicio-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <h4>Diseño Responsive</h4>
+                                <p>Se ve perfecto en cualquier dispositivo, especialmente en móviles donde está el 80% de tus clientes.</p>
+                            </div>
+                            <div class="servicio-card">
+                                <div class="servicio-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <h4>Velocidad Óptima</h4>
+                                <p>Carga instantánea incluso con conexión lenta, esencial para no perder clientes por espera.</p>
+                            </div>
+                            <div class="servicio-card">
+                                <div class="servicio-icon">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <h4>Conversión Directa</h4>
+                                <p>Botones de acción claros que guían al cliente a contactarte inmediatamente.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane" id="tab-seo">
+                        <h3>Optimización para Buscadores (SEO)</h3>
+                        <p>Configuro tu página para que Google y otros buscadores la entiendan y muestren a clientes potenciales.</p>
+                        <ul class="precio-features">
+                            <li><i class="fas fa-check"></i> Estructura HTML semántica</li>
+                            <li><i class="fas fa-check"></i> Meta etiquetas optimizadas</li>
+                            <li><i class="fas fa-check"></i> URLs amigables</li>
+                            <li><i class="fas fa-check"></i> Optimización de imágenes</li>
+                            <li><i class="fas fa-check"></i> Sitemap XML incluido</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tab-pane" id="tab-hosting">
+                        <h3>Hosting Gratuito y Confiable</h3>
+                        <p>Utilizo GitHub Pages, una plataforma empresarial de Microsoft que ofrece:</p>
+                        <ul class="precio-features">
+                            <li><i class="fas fa-check"></i> Alojamiento 100% gratuito</li>
+                            <li><i class="fas fa-check"></i> Certificado SSL incluido (candado verde)</li>
+                            <li><i class="fas fa-check"></i> Tiempo de actividad del 99.9%</li>
+                            <li><i class="fas fa-check"></i> Velocidad de carga premium</li>
+                            <li><i class="fas fa-check"></i> Seguridad empresarial</li>
+                        </ul>
+                        <p><strong>Nota:</strong> La dirección será del tipo: tunegocio.github.io</p>
+                    </div>
+                    
+                    <div class="tab-pane" id="tab-mantenimiento">
+                        <h3>Soporte y Mantenimiento</h3>
+                        <p>Te acompaño durante todo el proceso y después del lanzamiento:</p>
+                        <ul class="precio-features">
+                            <li><i class="fas fa-check"></i> Capacitación para actualizar textos</li>
+                            <li><i class="fas fa-check"></i> Soporte técnico por 15 días</li>
+                            <li><i class="fas fa-check"></i> Backup de tu página</li>
+                            <li><i class="fas fa-check"></i> Asesoría en marketing digital</li>
+                            <li><i class="fas fa-check"></i> Actualizaciones de seguridad</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Portafolio -->
+    <section id="portafolio" style="background-color: #f1f8ff;">
+        <div class="container">
+            <h2 class="section-title text-center">Portafolio de Proyectos</h2>
+            <p class="text-center">Ejemplos reales de landing pages creadas para negocios cubanos.</p>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-tags">
+                            <span class="tag">Cafetería</span>
+                            <span class="tag">Food & Drink</span>
+                        </div>
+                        <h3>Café Aromas de Cuba</h3>
+                        <p>Landing page para una cafetería local con menú digital, horarios y pedidos por WhatsApp.</p>
+                        <a href="#precios" class="btn btn-outline" style="margin-top: 15px;">Ver Plan Similar</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-tags">
+                            <span class="tag">Tecnología</span>
+                            <span class="tag">Servicios</span>
+                        </div>
+                        <h3>TechFix Reparaciones</h3>
+                        <p>Sitio para taller de reparación de móviles y computadoras con listado de servicios y precios.</p>
+                        <a href="#precios" class="btn btn-outline" style="margin-top: 15px;">Ver Plan Similar</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-tags">
+                            <span class="tag">Moda</span>
+                            <span class="tag">Retail</span>
+                        </div>
+                        <h3>Boutique Estilo Único</h3>
+                        <p>Vitrina digital para tienda de ropa con catálogo, tallas disponibles y contacto directo.</p>
+                        <a href="#precios" class="btn btn-outline" style="margin-top: 15px;">Ver Plan Similar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Precios -->
+    <section id="precios">
+        <div class="container">
+            <h2 class="section-title text-center">Inversión Inteligente</h2>
+            <p class="text-center">Elige el plan que mejor se adapte a las necesidades de tu negocio. <span class="highlight">Pago único, sin mensualidades.</span></p>
+            
+            <div class="precios-grid">
+                <div class="precio-card">
+                    <h3>Plan Básico</h3>
+                    <div class="precio-amount">8,000 CUP</div>
+                    <p class="precio-periodo">Inversión Única</p>
+                    <ul class="precio-features">
+                        <li><i class="fas fa-check"></i> Diseño responsive moderno</li>
+                        <li><i class="fas fa-check"></i> Hasta 4 secciones</li>
+                        <li><i class="fas fa-check"></i> Botones WhatsApp/Telegram</li>
+                        <li><i class="fas fa-check"></i> Formulario de contacto</li>
+                        <li><i class="fas fa-check"></i> Hosting gratis (GitHub Pages)</li>
+                        <li><i class="fas fa-check"></i> Entrega en 5 días</li>
+                    </ul>
+                    <a href="https://wa.me/5351234567?text=Hola,%20quiero%20el%20Plan%20Básico%20(8,000%20CUP)" target="_blank" class="btn">Seleccionar Plan</a>
+                </div>
+                
+                <div class="precio-card popular">
+                    <div class="popular-badge">MÁS POPULAR</div>
+                    <h3>Plan Profesional</h3>
+                    <div class="precio-amount">12,000 CUP</div>
+                    <p class="precio-periodo">Inversión Única</p>
+                    <ul class="precio-features">
+                        <li><i class="fas fa-check"></i> Todo del plan básico</li>
+                        <li><i class="fas fa-check"></i> Hasta 6 secciones</li>
+                        <li><i class="fas fa-check"></i> SEO básico incluido</li>
+                        <li><i class="fas fa-check"></i> Integración Google Maps</li>
+                        <li><i class="fas fa-check"></i> Panel para actualizar textos</li>
+                        <li><i class="fas fa-check"></i> Soporte 15 días</li>
+                        <li><i class="fas fa-check"></i> Entrega en 7 días</li>
+                    </ul>
+                    <a href="https://wa.me/5351234567?text=Hola,%20quiero%20el%20Plan%20Profesional%20(12,000%20CUP)" target="_blank" class="btn btn-whatsapp">Seleccionar Plan</a>
+                </div>
+                
+                <div class="precio-card">
+                    <h3>Plan Premium</h3>
+                    <div class="precio-amount">20,000 CUP</div>
+                    <p class="precio-periodo">Inversión Única</p>
+                    <ul class="precio-features">
+                        <li><i class="fas fa-check"></i> Todo del plan profesional</li>
+                        <li><i class="fas fa-check"></i> Dominio propio por 1 año*</li>
+                        <li><i class="fas fa-check"></i> Email profesional</li>
+                        <li><i class="fas fa-check"></i> Certificado SSL premium</li>
+                        <li><i class="fas fa-check"></i> Gestión completa del dominio</li>
+                        <li><i class="fas fa-check"></i> Soporte 30 días</li>
+                    </ul>
+                    <p style="font-size: 0.9rem; margin-top: 20px;"><em>*Renovación anual del dominio: 8,000-12,000 CUP adicionales</em></p>
+                    <a href="https://wa.me/5351234567?text=Hola,%20quiero%20el%20Plan%20Premium%20(20,000%20CUP)" target="_blank" class="btn">Consultar Disponibilidad</a>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 50px;">
+                <p><strong>¿Cuánto vale un cliente nuevo para tu negocio?</strong><br>
+                Con 2-3 ventas generadas por tu landing page, la inversión <span class="highlight">se recupera completamente</span>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Proceso -->
+    <section id="proceso" style="background-color: #f1f8ff;">
+        <div class="container">
+            <h2 class="section-title text-center">Proceso de Trabajo</h2>
+            <p class="text-center">Así es como convertimos tu idea en una landing page funcional y efectiva.</p>
+            
+            <div class="proceso-timeline">
+                <div class="proceso-item">
+                    <div class="proceso-icon">1</div>
+                    <div class="proceso-content">
+                        <h3>Consulta Inicial</h3>
+                        <p>Analizamos tu negocio, objetivos y competencia. Definimos el alcance del proyecto sin compromiso.</p>
+                    </div>
+                </div>
+                
+                <div class="proceso-item">
+                    <div class="proceso-icon">2</div>
+                    <div class="proceso-content">
+                        <h3>Diseño y Desarrollo</h3>
+                        <p>Creo el diseño adaptado a tu negocio y desarrollo la landing page con las mejores prácticas técnicas.</p>
+                    </div>
+                </div>
+                
+                <div class="proceso-item">
+                    <div class="proceso-icon">3</div>
+                    <div class="proceso-content">
+                        <h3>Revisión y Ajustes</h3>
+                        <p>Te muestro el resultado para que des tu feedback. Realizamos los ajustes necesarios hasta que estés 100% satisfecho.</p>
+                    </div>
+                </div>
+                
+                <div class="proceso-item">
+                    <div class="proceso-icon">4</div>
+                    <div class="proceso-content">
+                        <h3>Lanzamiento y Capacitación</h3>
+                        <p>Publicamos tu página, te entrego todo el control y te capacito para que puedas actualizar contenidos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección FAQ -->
+    <section id="faq">
+        <div class="container">
+            <h2 class="section-title text-center">Preguntas Frecuentes</h2>
+            <p class="text-center">Resuelvo tus dudas más comunes sobre landing pages para negocios en Cuba.</p>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Por qué una Landing Page y no una web completa?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Para negocios locales, una landing page es más efectiva porque: 1) Es más barata (inversión única), 2) Carga más rápido (esencial con nuestra conexión), 3) Es más directa (lleva al cliente directo a la acción), 4) No requiere mantenimiento complejo. Es la solución perfecta para empezar en internet.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Realmente funciona el hosting gratuito de GitHub?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutamente. GitHub Pages es un servicio empresarial de Microsoft usado por millones de desarrolladores. Ofrece: 99.9% tiempo de actividad, certificado SSL gratuito, velocidad premium y seguridad de nivel empresarial. Es mucho más confiable que muchos hostings pagos económicos.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Puedo actualizar los precios después?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, en los planes Profesional y Premium te enseño a actualizar textos, precios y algunas imágenes tú mismo mediante un método sencillo. No necesitas saber programación. En el plan Básico, puedo hacer las actualizaciones por un costo adicional mínimo.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Qué necesito para empezar?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Solo necesitas: 1) Información de tu negocio (servicios, precios, horarios), 2) Fotos o imágenes (si no tienes, uso bancos gratuitos), 3) Datos de contacto, 4) Logo (opcional, puedo diseñarte uno básico). Yo me encargo de todo lo técnico y creativo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section id="cta">
+        <div class="container">
+            <h2 class="text-center">Tu Negocio Merece Ser Visible</h2>
+            <p>Mientras otros siguen perdiendo clientes por no estar en internet, tú puedes dar el paso más inteligente para tu negocio. Una landing page profesional no es un gasto, es una inversión que trabaja 24/7 por ti.</p>
+            <p><strong>¿Listo para transformar tu presencia digital?</strong></p>
+            
+            <div class="hero-btns" style="margin-top: 40px;">
+                <a href="https://wa.me/5351234567?text=Hola,%20quiero%20empezar%20con%20mi%20Landing%20Page%20profesional" target="_blank" class="btn btn-whatsapp" style="padding: 15px 40px; font-size: 1.2rem;">
+                    <i class="fab fa-whatsapp"></i> ¡Quiero Mi Landing Page!
+                </a>
+            </div>
+            
+            <p style="margin-top: 30px; font-size: 1rem; opacity: 0.8;">Reservas tu proyecto con solo el 50% de anticipo. El resto al entregar.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Visibilidad Digital Cuba</h3>
+                    <p>Especialistas en landing pages para negocios locales cubanos. Creamos soluciones digitales efectivas y accesibles.</p>
+                    <p><strong>"Tu éxito en línea es nuestro compromiso."</strong></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto Directo</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <span><a href="https://wa.me/5351234567" target="_blank" style="color: #bbb; text-decoration: none;">WhatsApp: +53 5123 4567</a></span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-telegram"></i>
+                            <span><a href="https://t.me/tuusuario" target="_blank" style="color: #bbb; text-decoration: none;">Telegram: @tuusuario</a></span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span><a href="mailto:contacto@visibilidadcuba.com" style="color: #bbb; text-decoration: none;">contacto@visibilidadcuba.com</a></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Horario de Atención</h3>
+                    <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+                    <p>Sábados: 10:00 AM - 2:00 PM</p>
+                    <p>Respuesta en WhatsApp: 24/7</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Visibilidad Digital Cuba. Todos los derechos reservados.</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;">Esta página es un ejemplo vivo de lo que puedo crear para tu negocio.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== SISTEMA DE PESTAÑAS =====
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configurar pestañas
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Obtener el target
+                    const target = btn.getAttribute('data-tab');
+                    
+                    // Remover active de todos
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabPanes.forEach(p => p.classList.remove('active'));
+                    
+                    // Añadir active al botón clickeado
+                    btn.classList.add('active');
+                    
+                    // Mostrar el panel correspondiente
+                    document.getElementById(`tab-${target}`).classList.add('active');
+                });
+            });
+            
+            // ===== FAQ ACORDEÓN =====
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const icon = question.querySelector('i');
+                    
+                    // Cerrar otras respuestas (acordeón)
+                    document.querySelectorAll('.faq-answer.open').forEach(openAnswer => {
+                        if (openAnswer !== answer) {
+                            openAnswer.classList.remove('open');
+                            openAnswer.previousElementSibling.querySelector('i').classList.remove('fa-chevron-up');
+                            openAnswer.previousElementSibling.querySelector('i').classList.add('fa-chevron-down');
+                        }
+                    });
+                    
+                    // Alternar respuesta actual
+                    answer.classList.toggle('open');
+                    
+                    // Cambiar ícono
+                    if (answer.classList.contains('open')) {
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    } else {
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                });
+            });
+            
+            // ===== SMOOTH SCROLL =====
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // ===== ANIMACIÓN AL SCROLL =====
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observar elementos para animar
+            document.querySelectorAll('.servicio-card, .portfolio-item, .precio-card').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
