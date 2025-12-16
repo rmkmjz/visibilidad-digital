@@ -14,16 +14,18 @@
             --success: #2ecc71;
             --light: #f8f9fa;
             --dark: #1a252f;
+            --gray: #95a5a6;
             --shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --shadow-hover: 0 15px 30px rgba(0,0,0,0.15);
             --transition: all 0.3s ease;
             --border-radius: 10px;
+            --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         html {
@@ -31,6 +33,7 @@
         }
         
         body {
+            font-family: var(--font-primary);
             background-color: var(--light);
             color: #333;
             line-height: 1.6;
@@ -91,16 +94,6 @@
             color: #25D366;
         }
         
-        .btn-outline {
-            background: transparent;
-            color: var(--secondary);
-        }
-        
-        .btn-outline:hover {
-            background: var(--secondary);
-            color: white;
-        }
-        
         .text-center {
             text-align: center;
         }
@@ -110,25 +103,7 @@
             font-weight: 700;
         }
         
-        .section-title {
-            position: relative;
-            padding-bottom: 15px;
-            margin-bottom: 40px;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--secondary);
-            border-radius: 2px;
-        }
-        
-        /* ===== HEADER / HERO ===== */
+        /* ===== HEADER ===== */
         header {
             background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
             color: white;
@@ -179,22 +154,26 @@
             margin-top: 40px;
         }
         
-        /* ===== SISTEMA DE PESTAÑAS ===== */
-        .tabs-container {
+        /* ===== SISTEMA DE PESTAÑAS PRINCIPAL ===== */
+        .main-tabs {
             background: white;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             overflow: hidden;
+            margin-top: 40px;
         }
         
-        .tabs-header {
+        .tabs-navigation {
             display: flex;
             background: #f1f8ff;
             border-bottom: 1px solid #e0e0e0;
             flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         
-        .tab-btn {
+        .tab-nav-btn {
             flex: 1;
             min-width: 150px;
             padding: 20px;
@@ -207,19 +186,23 @@
             transition: var(--transition);
             text-align: center;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
         
-        .tab-btn:hover {
+        .tab-nav-btn:hover {
             background: rgba(52, 152, 219, 0.1);
             color: var(--secondary);
         }
         
-        .tab-btn.active {
+        .tab-nav-btn.active {
             color: var(--secondary);
             background: white;
         }
         
-        .tab-btn.active::after {
+        .tab-nav-btn.active::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -229,16 +212,20 @@
             background: var(--secondary);
         }
         
-        .tabs-content {
+        .tab-nav-btn i {
+            font-size: 1.2rem;
+        }
+        
+        .tabs-content-wrapper {
             padding: 40px;
         }
         
-        .tab-pane {
+        .tab-content {
             display: none;
             animation: fadeIn 0.5s ease;
         }
         
-        .tab-pane.active {
+        .tab-content.active {
             display: block;
         }
         
@@ -247,51 +234,124 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* ===== SERVICIOS ===== */
-        #servicios {
-            background: linear-gradient(to bottom, #f8f9fa 0%, #fff 100%);
-        }
+        /* ===== ESTILOS ESPECÍFICOS DE CONTENIDO ===== */
         
-        .servicios-grid {
+        /* Pestaña: ¿Por Qué? */
+        .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 50px;
+            margin-top: 40px;
         }
         
-        .servicio-card {
-            background: white;
-            padding: 40px 30px;
+        .benefit-card {
+            background: #f8f9fa;
+            padding: 30px;
             border-radius: var(--border-radius);
+            border-top: 5px solid var(--secondary);
             box-shadow: var(--shadow);
             transition: var(--transition);
-            text-align: center;
-            border-top: 5px solid var(--secondary);
         }
         
-        .servicio-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
         }
         
-        .servicio-icon {
-            font-size: 3rem;
+        .benefit-icon {
+            font-size: 2.5rem;
             color: var(--secondary);
             margin-bottom: 20px;
-            display: inline-block;
-            height: 80px;
-            width: 80px;
-            line-height: 80px;
-            background: rgba(52, 152, 219, 0.1);
-            border-radius: 50%;
         }
         
-        /* ===== PORTFOLIO ===== */
+        /* Pestaña: Servicios */
+        .services-subtabs {
+            margin-top: 30px;
+        }
+        
+        .sub-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .sub-tab-btn {
+            padding: 10px 20px;
+            background: #f1f8ff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            color: #666;
+        }
+        
+        .sub-tab-btn.active {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .service-detail {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            display: none;
+        }
+        
+        .service-detail.active {
+            display: block;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-list li i {
+            color: var(--success);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* Pestaña: Portafolio */
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 30px 0;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            background: #f1f8ff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            color: #666;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--secondary);
+            color: white;
+        }
+        
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
-            margin-top: 50px;
+            margin-top: 30px;
         }
         
         .portfolio-item {
@@ -300,18 +360,22 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            display: none;
+        }
+        
+        .portfolio-item.active {
+            display: block;
         }
         
         .portfolio-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            box-shadow: var(--shadow-hover);
         }
         
         .portfolio-img {
             height: 250px;
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
             position: relative;
         }
         
@@ -326,7 +390,7 @@
         }
         
         .portfolio-content {
-            padding: 30px;
+            padding: 25px;
         }
         
         .portfolio-tags {
@@ -345,19 +409,15 @@
             font-weight: 600;
         }
         
-        /* ===== PRECIOS ===== */
-        #precios {
-            background: linear-gradient(to bottom, #fff 0%, #f8f9fa 100%);
-        }
-        
-        .precios-grid {
+        /* Pestaña: Precios */
+        .pricing-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 50px;
+            margin-top: 40px;
         }
         
-        .precio-card {
+        .pricing-card {
             background: white;
             border-radius: var(--border-radius);
             padding: 40px 30px;
@@ -368,17 +428,17 @@
             border: 2px solid #e0e0e0;
         }
         
-        .precio-card:hover {
+        .pricing-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            box-shadow: var(--shadow-hover);
         }
         
-        .precio-card.popular {
+        .pricing-card.popular {
             border-color: var(--secondary);
             transform: scale(1.05);
         }
         
-        .popular-badge {
+        .pricing-badge {
             position: absolute;
             top: -15px;
             left: 50%;
@@ -391,50 +451,100 @@
             font-size: 0.9rem;
         }
         
-        .precio-amount {
+        .price {
             font-size: 3.5rem;
             font-weight: 700;
             color: var(--primary);
             margin: 20px 0;
         }
         
-        .precio-periodo {
-            color: #666;
+        .price-period {
+            color: var(--gray);
             font-size: 1rem;
             margin-bottom: 30px;
         }
         
-        .precio-features {
+        .pricing-features {
             list-style: none;
             margin-bottom: 40px;
             text-align: left;
         }
         
-        .precio-features li {
+        .pricing-features li {
             padding: 10px 0;
             border-bottom: 1px dashed #eee;
             display: flex;
             align-items: center;
         }
         
-        .precio-features li i {
+        .pricing-features li i {
             color: var(--success);
             margin-right: 10px;
             font-size: 1.2rem;
         }
         
-        .precio-features li.disabled {
-            color: #999;
+        /* Pestaña: Proceso */
+        .process-timeline {
+            max-width: 800px;
+            margin: 40px auto 0;
+            position: relative;
         }
         
-        .precio-features li.disabled i {
-            color: #ccc;
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--secondary);
+            transform: translateX(-50%);
         }
         
-        /* ===== FAQ ===== */
+        .process-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .process-step:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+        
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            z-index: 1;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .step-content {
+            width: 45%;
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .process-step:nth-child(odd) .step-content {
+            margin-left: auto;
+        }
+        
+        /* Pestaña: FAQ */
         .faq-container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 40px auto 0;
         }
         
         .faq-item {
@@ -481,74 +591,19 @@
             max-height: 1000px;
         }
         
-        /* ===== PROCESO ===== */
-        .proceso-timeline {
-            max-width: 900px;
-            margin: 50px auto 0;
-            position: relative;
-        }
-        
-        .proceso-timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--secondary);
-            transform: translateX(-50%);
-        }
-        
-        .proceso-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 50px;
-            position: relative;
-        }
-        
-        .proceso-item:nth-child(odd) {
-            flex-direction: row-reverse;
-        }
-        
-        .proceso-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--secondary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            z-index: 1;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .proceso-content {
-            width: 45%;
-            background: white;
-            padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-        }
-        
-        .proceso-item:nth-child(odd) .proceso-content {
-            margin-left: auto;
-        }
-        
-        /* ===== CTA ===== */
+        /* CTA Final */
         #cta {
             background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
             color: white;
             text-align: center;
             padding: 100px 0;
+            margin-top: 60px;
         }
         
         #cta h2 {
             color: white;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
         
         #cta p {
@@ -558,7 +613,7 @@
             opacity: 0.9;
         }
         
-        /* ===== FOOTER ===== */
+        /* Footer */
         footer {
             background: var(--dark);
             color: #bbb;
@@ -576,11 +631,6 @@
             color: white;
             margin-bottom: 25px;
             font-size: 1.3rem;
-        }
-        
-        .footer-section p {
-            margin-bottom: 20px;
-            font-size: 1rem;
         }
         
         .contact-info {
@@ -606,7 +656,7 @@
             border-top: 1px solid #34495e;
         }
         
-        /* ===== RESPONSIVE ===== */
+        /* Responsive */
         @media (max-width: 992px) {
             header h1 {
                 font-size: 2.5rem;
@@ -616,22 +666,22 @@
                 font-size: 1.2rem;
             }
             
-            .precio-card.popular {
+            .pricing-card.popular {
                 transform: none;
             }
         }
         
         @media (max-width: 768px) {
-            .tabs-header {
+            .tabs-navigation {
                 flex-direction: column;
             }
             
-            .tab-btn {
+            .tab-nav-btn {
                 min-width: 100%;
                 border-bottom: 1px solid #e0e0e0;
             }
             
-            .tab-btn.active::after {
+            .tab-nav-btn.active::after {
                 width: 5px;
                 height: 100%;
                 top: 0;
@@ -639,19 +689,19 @@
                 bottom: 0;
             }
             
-            .proceso-timeline::before {
+            .process-timeline::before {
                 left: 30px;
             }
             
-            .proceso-item {
+            .process-step {
                 flex-direction: row !important;
             }
             
-            .proceso-icon {
+            .step-icon {
                 left: 30px;
             }
             
-            .proceso-content {
+            .step-content {
                 width: calc(100% - 90px);
                 margin-left: 90px !important;
             }
@@ -664,6 +714,14 @@
             .btn {
                 width: 100%;
                 max-width: 300px;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-cards {
+                grid-template-columns: 1fr;
             }
         }
         
@@ -680,11 +738,7 @@
                 font-size: 2rem;
             }
             
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .tabs-content {
+            .tabs-content-wrapper {
                 padding: 30px 20px;
             }
         }
@@ -698,295 +752,447 @@
                 <h1>Landing Pages Profesionales para Negocios Cubanos</h1>
                 <p class="hero-subtitle">Tu vitrina digital 24/7 que atrae clientes y genera ventas. Inversión única, resultados permanentes.</p>
                 <div class="hero-btns">
-                    <a href="#servicios" class="btn">Ver Servicios</a>
+                    <a href="#main-tabs" class="btn">Explorar Servicios</a>
                     <a href="https://wa.me/5351234567?text=Hola,%20quiero%20más%20información%20sobre%20las%20Landing%20Pages" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Consultar por WhatsApp</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Sección de Servicios con Pestañas -->
-    <section id="servicios">
+    <!-- Sistema de Pestañas Principal -->
+    <section id="main-tabs">
         <div class="container">
-            <h2 class="section-title text-center">Servicios Profesionales</h2>
-            <p class="text-center">Ofrezco soluciones digitales completas diseñadas específicamente para el mercado cubano y sus necesidades reales.</p>
+            <h2 class="text-center">Todo lo que tu Negocio Necesita en una Solución Digital</h2>
+            <p class="text-center">Explora cada aspecto de nuestro servicio en las pestañas a continuación.</p>
             
-            <div class="tabs-container">
-                <div class="tabs-header">
-                    <button class="tab-btn active" data-tab="landing">Landing Pages</button>
-                    <button class="tab-btn" data-tab="seo">SEO Básico</button>
-                    <button class="tab-btn" data-tab="hosting">Hosting Gratuito</button>
-                    <button class="tab-btn" data-tab="mantenimiento">Mantenimiento</button>
+            <div class="main-tabs">
+                <div class="tabs-navigation">
+                    <button class="tab-nav-btn active" data-tab="why">
+                        <i class="fas fa-question-circle"></i> ¿Por Qué?
+                    </button>
+                    <button class="tab-nav-btn" data-tab="services">
+                        <i class="fas fa-cogs"></i> Servicios
+                    </button>
+                    <button class="tab-nav-btn" data-tab="portfolio">
+                        <i class="fas fa-images"></i> Portafolio
+                    </button>
+                    <button class="tab-nav-btn" data-tab="pricing">
+                        <i class="fas fa-tags"></i> Precios
+                    </button>
+                    <button class="tab-nav-btn" data-tab="process">
+                        <i class="fas fa-tasks"></i> Proceso
+                    </button>
+                    <button class="tab-nav-btn" data-tab="faq">
+                        <i class="fas fa-comments"></i> FAQ
+                    </button>
                 </div>
                 
-                <div class="tabs-content">
-                    <div class="tab-pane active" id="tab-landing">
-                        <h3>Landing Pages de Alto Impacto</h3>
-                        <p>Diseño y desarrollo de páginas web estáticas optimizadas para conversión. Cada landing page incluye:</p>
-                        <div class="servicios-grid">
-                            <div class="servicio-card">
-                                <div class="servicio-icon">
+                <div class="tabs-content-wrapper">
+                    <!-- Pestaña 1: ¿Por Qué? -->
+                    <div class="tab-content active" id="tab-why">
+                        <h3>¿Por Qué Tu Negocio Necesita una Landing Page?</h3>
+                        <p>En el mundo digital actual, no tener presencia online significa perder clientes potenciales todos los días. Una Landing Page es la solución perfecta para negocios locales que quieren empezar con el pie derecho en internet.</p>
+                        
+                        <div class="benefits-grid">
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h4>Aumenta tu Visibilidad</h4>
+                                <p>Tu negocio aparecerá en búsquedas de Google cuando clientes potenciales busquen lo que ofreces en tu zona.</p>
+                            </div>
+                            
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
                                     <i class="fas fa-mobile-alt"></i>
                                 </div>
-                                <h4>Diseño Responsive</h4>
-                                <p>Se ve perfecto en cualquier dispositivo, especialmente en móviles donde está el 80% de tus clientes.</p>
+                                <h4>Accesible desde Cualquier Dispositivo</h4>
+                                <p>Optimizada para móviles, tablets y computadoras. El 80% de tus clientes te buscarán desde su teléfono.</p>
                             </div>
-                            <div class="servicio-card">
-                                <div class="servicio-icon">
-                                    <i class="fas fa-bolt"></i>
+                            
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-clock"></i>
                                 </div>
-                                <h4>Velocidad Óptima</h4>
-                                <p>Carga instantánea incluso con conexión lenta, esencial para no perder clientes por espera.</p>
+                                <h4>Trabaja 24/7 por Ti</h4>
+                                <p>Mientras tú duermes, tu Landing Page sigue mostrando tus servicios y captando clientes potenciales.</p>
                             </div>
-                            <div class="servicio-card">
-                                <div class="servicio-icon">
-                                    <i class="fas fa-shopping-cart"></i>
+                            
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-money-bill-wave"></i>
                                 </div>
-                                <h4>Conversión Directa</h4>
-                                <p>Botones de acción claros que guían al cliente a contactarte inmediatamente.</p>
+                                <h4>Inversión con ROI Rápido</h4>
+                                <p>Con solo 1-2 clientes nuevos generados por la página, recuperas completamente tu inversión.</p>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 40px; text-align: center;">
+                            <a href="#tab-pricing" class="btn" onclick="switchTab('pricing')">Ver Precios y Planes</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Pestaña 2: Servicios -->
+                    <div class="tab-content" id="tab-services">
+                        <h3>Servicios Completos de Landing Pages</h3>
+                        <p>Ofrezco un paquete completo que cubre todo lo necesario para que tu negocio brille en internet.</p>
+                        
+                        <div class="services-subtabs">
+                            <div class="sub-tabs">
+                                <button class="sub-tab-btn active" data-subtab="design">Diseño</button>
+                                <button class="sub-tab-btn" data-subtab="development">Desarrollo</button>
+                                <button class="sub-tab-btn" data-subtab="seo">SEO</button>
+                                <button class="sub-tab-btn" data-subtab="hosting">Hosting</button>
+                                <button class="sub-tab-btn" data-subtab="support">Soporte</button>
+                            </div>
+                            
+                            <div class="service-detail active" id="service-design">
+                                <h4><i class="fas fa-palette" style="color: var(--secondary); margin-right: 10px;"></i> Diseño Profesional</h4>
+                                <p>Creo diseños atractivos y funcionales específicamente para tu tipo de negocio:</p>
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-check"></i> <strong>Mobile-First:</strong> Diseño optimizado para móviles primero</li>
+                                    <li><i class="fas fa-check"></i> <strong>Responsive:</strong> Se adapta a cualquier dispositivo</li>
+                                    <li><i class="fas fa-check"></i> <strong>Personalizado:</strong> Colores y estilo que representen tu marca</li>
+                                    <li><i class="fas fa-check"></i> <strong>User-Friendly:</strong> Navegación intuitiva y clara</li>
+                                    <li><i class="fas fa-check"></i> <strong>Atractivo Visual:</strong> Uso estratégico de imágenes y tipografía</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="service-detail" id="service-development">
+                                <h4><i class="fas fa-code" style="color: var(--secondary); margin-right: 10px;"></i> Desarrollo Técnico</h4>
+                                <p>Implementación con las mejores prácticas de desarrollo web:</p>
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-check"></i> <strong>HTML5 Semántico:</strong> Código limpio y bien estructurado</li>
+                                    <li><i class="fas fa-check"></i> <strong>CSS3 Avanzado:</strong> Animaciones y efectos modernos</li>
+                                    <li><i class="fas fa-check"></i> <strong>JavaScript:</strong> Interactividad y funcionalidades</li>
+                                    <li><i class="fas fa-check"></i> <strong>Velocidad Optimizada:</strong> Carga rápida incluso con conexión lenta</li>
+                                    <li><i class="fas fa-check"></i> <strong>Integraciones:</strong> WhatsApp, Telegram, Google Maps</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="service-detail" id="service-seo">
+                                <h4><i class="fas fa-search" style="color: var(--secondary); margin-right: 10px;"></i> Optimización SEO</h4>
+                                <p>Configuración para que Google te encuentre fácilmente:</p>
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-check"></i> <strong>SEO On-Page:</strong> Meta tags, títulos y descripciones optimizadas</li>
+                                    <li><i class="fas fa-check"></i> <strong>Estructura Semántica:</strong> HTML que los buscadores entienden</li>
+                                    <li><i class="fas fa-check"></i> <strong>URLs Amigables:</strong> Fáciles de leer y compartir</li>
+                                    <li><i class="fas fa-check"></i> <strong>Optimización de Imágenes:</strong> Tamaño reducido sin perder calidad</li>
+                                    <li><i class="fas fa-check"></i> <strong>Sitemap XML:</strong> Para que Google indexe tu página rápido</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="service-detail" id="service-hosting">
+                                <h4><i class="fas fa-server" style="color: var(--secondary); margin-right: 10px;"></i> Hosting Gratuito</h4>
+                                <p>Utilizo GitHub Pages, un servicio empresarial de Microsoft:</p>
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-check"></i> <strong>100% Gratuito:</strong> Sin costo mensual de alojamiento</li>
+                                    <li><i class="fas fa-check"></i> <strong>SSL Incluido:</strong> Certificado de seguridad (candado verde)</li>
+                                    <li><i class="fas fa-check"></i> <strong>99.9% Uptime:</strong> Tu página siempre disponible</li>
+                                    <li><i class="fas fa-check"></i> <strong>Velocidad Premium:</strong> Servidores rápidos de GitHub</li>
+                                    <li><i class="fas fa-check"></i> <strong>Seguridad Empresarial:</strong> Protección de nivel corporativo</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="service-detail" id="service-support">
+                                <h4><i class="fas fa-headset" style="color: var(--secondary); margin-right: 10px;"></i> Soporte y Capacitación</h4>
+                                <p>Te acompaño durante y después del desarrollo:</p>
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-check"></i> <strong>Capacitación:</strong> Te enseño a actualizar textos y precios</li>
+                                    <li><i class="fas fa-check"></i> <strong>Soporte Técnico:</strong> 15-30 días según el plan</li>
+                                    <li><i class="fas fa-check"></i> <strong>Backup:</strong> Copia de seguridad de tu página</li>
+                                    <li><i class="fas fa-check"></i> <strong>Asesoría:</strong> Tips de marketing digital para tu negocio</li>
+                                    <li><i class="fas fa-check"></i> <strong>Actualizaciones:</strong> Mantenimiento de seguridad básico</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="tab-pane" id="tab-seo">
-                        <h3>Optimización para Buscadores (SEO)</h3>
-                        <p>Configuro tu página para que Google y otros buscadores la entiendan y muestren a clientes potenciales.</p>
-                        <ul class="precio-features">
-                            <li><i class="fas fa-check"></i> Estructura HTML semántica</li>
-                            <li><i class="fas fa-check"></i> Meta etiquetas optimizadas</li>
-                            <li><i class="fas fa-check"></i> URLs amigables</li>
-                            <li><i class="fas fa-check"></i> Optimización de imágenes</li>
-                            <li><i class="fas fa-check"></i> Sitemap XML incluido</li>
-                        </ul>
+                    <!-- Pestaña 3: Portafolio -->
+                    <div class="tab-content" id="tab-portfolio">
+                        <h3>Ejemplos de Landing Pages para Diferentes Negocios</h3>
+                        <p>Diseños creados específicamente para el mercado cubano. Haz clic en una categoría para ver ejemplos.</p>
+                        
+                        <div class="portfolio-filter">
+                            <button class="filter-btn active" data-filter="all">Todos</button>
+                            <button class="filter-btn" data-filter="food">Comida</button>
+                            <button class="filter-btn" data-filter="services">Servicios</button>
+                            <button class="filter-btn" data-filter="retail">Retail</button>
+                            <button class="filter-btn" data-filter="entertainment">Entretenimiento</button>
+                        </div>
+                        
+                        <div class="portfolio-grid">
+                            <!-- Ejemplo 1 -->
+                            <div class="portfolio-item active" data-category="food">
+                                <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                                <div class="portfolio-content">
+                                    <div class="portfolio-tags">
+                                        <span class="tag">Cafetería</span>
+                                        <span class="tag">Comida</span>
+                                    </div>
+                                    <h4>Café Aromas de Cuba</h4>
+                                    <p>Landing page para cafetería con menú digital, horarios, ubicación y pedidos por WhatsApp.</p>
+                                    <p><strong>Características:</strong> Menú interactivo, galería de fotos, botón de pedidos directo.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Ejemplo 2 -->
+                            <div class="portfolio-item active" data-category="services">
+                                <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                                <div class="portfolio-content">
+                                    <div class="portfolio-tags">
+                                        <span class="tag">Tecnología</span>
+                                        <span class="tag">Servicios</span>
+                                    </div>
+                                    <h4>TechFix Reparaciones</h4>
+                                    <p>Sitio para taller de reparación de móviles y computadoras con listado de servicios.</p>
+                                    <p><strong>Características:</strong> Lista de precios, garantías, formulario de diagnóstico.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Ejemplo 3 -->
+                            <div class="portfolio-item active" data-category="retail">
+                                <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                                <div class="portfolio-content">
+                                    <div class="portfolio-tags">
+                                        <span class="tag">Moda</span>
+                                        <span class="tag">Retail</span>
+                                    </div>
+                                    <h4>Boutique Estilo Único</h4>
+                                    <p>Vitrina digital para tienda de ropa con catálogo y contacto directo.</p>
+                                    <p><strong>Características:</strong> Galería de productos, guía de tallas, consultas por WhatsApp.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Ejemplo 4 -->
+                            <div class="portfolio-item active" data-category="food">
+                                <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                                <div class="portfolio-content">
+                                    <div class="portfolio-tags">
+                                        <span class="tag">Restaurante</span>
+                                        <span class="tag">Comida</span>
+                                    </div>
+                                    <h4>Paladar Sabores Criollos</h4>
+                                    <p>Página para restaurante con menú completo y sistema de reservas.</p>
+                                    <p><strong>Características:</strong> Menú con fotos, horarios, reservas online, testimonios.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Ejemplo 5 -->
+                            <div class="portfolio-item active" data-category="services">
+                                <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                                <div class="portfolio-content">
+                                    <div class="portfolio-tags">
+                                        <span class="tag">Técnico</span>
+                                        <span class="tag">Servicios</span>
+                                    </div>
+                                    <h4>PC Solución</h4>
+                                    <p>Landing page para servicio técnico de computadoras con precios y zona de cobertura.</p>
+                                    <p><strong>Características:</strong> Diagnóstico online, precios claros, mapa de cobertura.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Ejemplo 6 -->
+                            <div class="portfolio-item active" data-category="entertainment">
+                                <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                                <div class="portfolio-content">
+                                    <div class="portfolio-tags">
+                                        <span class="tag">Música</span>
+                                        <span class="tag">Entretenimiento</span>
+                                    </div>
+                                    <h4>Estudio Sonido Cubano</h4>
+                                    <p>Sitio para estudio de grabación con portafolio y tarifas.</p>
+                                    <p><strong>Características:</strong> Portafolio de artistas, equipamiento, tarifas por hora.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 40px; text-align: center;">
+                            <p><em>Cada proyecto es único y se personaliza completamente según las necesidades específicas de tu negocio.</em></p>
+                            <a href="https://wa.me/5351234567?text=Hola,%20quiero%20una%20Landing%20Page%20como%20las%20del%20portafolio" target="_blank" class="btn btn-whatsapp">Solicitar un Proyecto Similar</a>
+                        </div>
                     </div>
                     
-                    <div class="tab-pane" id="tab-hosting">
-                        <h3>Hosting Gratuito y Confiable</h3>
-                        <p>Utilizo GitHub Pages, una plataforma empresarial de Microsoft que ofrece:</p>
-                        <ul class="precio-features">
-                            <li><i class="fas fa-check"></i> Alojamiento 100% gratuito</li>
-                            <li><i class="fas fa-check"></i> Certificado SSL incluido (candado verde)</li>
-                            <li><i class="fas fa-check"></i> Tiempo de actividad del 99.9%</li>
-                            <li><i class="fas fa-check"></i> Velocidad de carga premium</li>
-                            <li><i class="fas fa-check"></i> Seguridad empresarial</li>
-                        </ul>
-                        <p><strong>Nota:</strong> La dirección será del tipo: tunegocio.github.io</p>
+                    <!-- Pestaña 4: Precios -->
+                    <div class="tab-content" id="tab-pricing">
+                        <h3>Inversión Clara y Accesible para Tu Negocio</h3>
+                        <p class="text-center">Solo pagas <span class="highlight">UNA VEZ</span>. No hay mensualidades de hosting. Tu página estará en línea por años sin costo adicional.</p>
+                        
+                        <div class="pricing-cards">
+                            <!-- Plan Básico -->
+                            <div class="pricing-card">
+                                <h4>Presencia Digital</h4>
+                                <div class="price">8,000 CUP</div>
+                                <p class="price-period">Inversión Única</p>
+                                <p>Ideal para comenzar con lo esencial en internet.</p>
+                                <ul class="pricing-features">
+                                    <li><i class="fas fa-check"></i> Diseño moderno y responsive</li>
+                                    <li><i class="fas fa-check"></i> Hasta 4 secciones</li>
+                                    <li><i class="fas fa-check"></i> Botones WhatsApp/Telegram</li>
+                                    <li><i class="fas fa-check"></i> Formulario de contacto</li>
+                                    <li><i class="fas fa-check"></i> Alojamiento GRATIS (GitHub Pages)</li>
+                                    <li><i class="fas fa-check"></i> Entrega en 5 días</li>
+                                </ul>
+                                <a href="https://wa.me/5351234567?text=Hola,%20me%20interesa%20el%20plan%20Presencia%20Digital%20(8,000%20CUP)" target="_blank" class="btn">Seleccionar Plan</a>
+                            </div>
+                            
+                            <!-- Plan Recomendado -->
+                            <div class="pricing-card popular">
+                                <div class="pricing-badge">MÁS POPULAR</div>
+                                <h4>Cliente Seguro</h4>
+                                <div class="price">12,000 CUP</div>
+                                <p class="price-period">Inversión Única</p>
+                                <p>La inversión perfecta para maximizar resultados.</p>
+                                <ul class="pricing-features">
+                                    <li><i class="fas fa-check"></i> <strong>TODO del plan básico</strong></li>
+                                    <li><i class="fas fa-check"></i> Hasta 6 secciones</li>
+                                    <li><i class="fas fa-check"></i> SEO básico incluido</li>
+                                    <li><i class="fas fa-check"></i> Integración Google Maps</li>
+                                    <li><i class="fas fa-check"></i> Panel para actualizar textos</li>
+                                    <li><i class="fas fa-check"></i> Soporte por 15 días</li>
+                                    <li><i class="fas fa-check"></i> Entrega en 7 días</li>
+                                </ul>
+                                <a href="https://wa.me/5351234567?text=Hola,%20me%20interesa%20el%20plan%20Cliente%20Seguro%20(12,000%20CUP)" target="_blank" class="btn btn-whatsapp">¡Quiero este Plan!</a>
+                            </div>
+                            
+                            <!-- Plan Premium -->
+                            <div class="pricing-card">
+                                <h4>Presencia Total</h4>
+                                <div class="price">20,000 CUP</div>
+                                <p class="price-period">Inversión Única</p>
+                                <p>Para quien quiere el máximo profesionalismo.</p>
+                                <ul class="pricing-features">
+                                    <li><i class="fas fa-check"></i> <strong>TODO del plan "Cliente Seguro"</strong></li>
+                                    <li><i class="fas fa-check"></i> <strong>Dominio propio (.com) por 1 AÑO</strong></li>
+                                    <li><i class="fas fa-check"></i> Email profesional</li>
+                                    <li><i class="fas fa-check"></i> Certificado SSL premium</li>
+                                    <li><i class="fas fa-check"></i> Gestión completa del dominio</li>
+                                    <li><i class="fas fa-check"></i> Soporte 30 días</li>
+                                </ul>
+                                <p style="font-size: 0.9rem; margin-top: 20px;"><em>*Renovación anual del dominio: 8,000-12,000 CUP</em></p>
+                                <a href="https://wa.me/5351234567?text=Hola,%20me%20interesa%20el%20plan%20Presencia%20Total%20(20,000%20CUP)" target="_blank" class="btn">Consultar Disponibilidad</a>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 40px; text-align: center; background: #f8f9fa; padding: 30px; border-radius: var(--border-radius);">
+                            <h4>¿Cuánto vale un cliente nuevo para tu negocio?</h4>
+                            <p>Con solo <span class="highlight">2-3 clientes</span> generados por tu Landing Page, la inversión <strong>se recupera completamente</strong> y el resto son ganancias netas.</p>
+                            <p><strong>Comparación:</strong> Un salario promedio en Cuba es de ~3,500 CUP. Por menos de 4 salarios, obtienes una herramienta que trabaja por ti durante años.</p>
+                        </div>
                     </div>
                     
-                    <div class="tab-pane" id="tab-mantenimiento">
-                        <h3>Soporte y Mantenimiento</h3>
-                        <p>Te acompaño durante todo el proceso y después del lanzamiento:</p>
-                        <ul class="precio-features">
-                            <li><i class="fas fa-check"></i> Capacitación para actualizar textos</li>
-                            <li><i class="fas fa-check"></i> Soporte técnico por 15 días</li>
-                            <li><i class="fas fa-check"></i> Backup de tu página</li>
-                            <li><i class="fas fa-check"></i> Asesoría en marketing digital</li>
-                            <li><i class="fas fa-check"></i> Actualizaciones de seguridad</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección de Portafolio -->
-    <section id="portafolio" style="background-color: #f1f8ff;">
-        <div class="container">
-            <h2 class="section-title text-center">Portafolio de Proyectos</h2>
-            <p class="text-center">Ejemplos reales de landing pages creadas para negocios cubanos.</p>
-            
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="portfolio-content">
-                        <div class="portfolio-tags">
-                            <span class="tag">Cafetería</span>
-                            <span class="tag">Food & Drink</span>
+                    <!-- Pestaña 5: Proceso -->
+                    <div class="tab-content" id="tab-process">
+                        <h3>Proceso de Trabajo Claro y Transparente</h3>
+                        <p class="text-center">Así es como convertimos tu idea en una Landing Page funcional y efectiva.</p>
+                        
+                        <div class="process-timeline">
+                            <div class="process-step">
+                                <div class="step-icon">1</div>
+                                <div class="step-content">
+                                    <h4>Consulta Inicial</h4>
+                                    <p>Nos reunimos (virtualmente) para analizar tu negocio, objetivos y competencia. Definimos el alcance del proyecto sin compromiso.</p>
+                                    <p><strong>Duración:</strong> 30-60 minutos</p>
+                                </div>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-icon">2</div>
+                                <div class="step-content">
+                                    <h4>Diseño y Desarrollo</h4>
+                                    <p>Creo el diseño adaptado a tu negocio y desarrollo la Landing Page con las mejores prácticas técnicas y de UX.</p>
+                                    <p><strong>Duración:</strong> 3-5 días (según plan)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-icon">3</div>
+                                <div class="step-content">
+                                    <h4>Revisión y Ajustes</h4>
+                                    <p>Te muestro el resultado para que des tu feedback. Realizamos los ajustes necesarios hasta que estés 100% satisfecho.</p>
+                                    <p><strong>Duración:</strong> 1-2 días</p>
+                                </div>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-icon">4</div>
+                                <div class="step-content">
+                                    <h4>Lanzamiento y Capacitación</h4>
+                                    <p>Publicamos tu página, te entrego todo el control y te capacito para que puedas actualizar textos y precios tú mismo.</p>
+                                    <p><strong>Duración:</strong> 1 día</p>
+                                </div>
+                            </div>
                         </div>
-                        <h3>Café Aromas de Cuba</h3>
-                        <p>Landing page para una cafetería local con menú digital, horarios y pedidos por WhatsApp.</p>
-                        <a href="#precios" class="btn btn-outline" style="margin-top: 15px;">Ver Plan Similar</a>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item">
-                    <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="portfolio-content">
-                        <div class="portfolio-tags">
-                            <span class="tag">Tecnología</span>
-                            <span class="tag">Servicios</span>
+                        
+                        <div style="margin-top: 40px; text-align: center;">
+                            <h4>¿Qué necesitas para empezar?</h4>
+                            <p>Para comenzar tu proyecto solo necesitas:</p>
+                            <ul class="feature-list" style="max-width: 600px; margin: 20px auto;">
+                                <li><i class="fas fa-check"></i> Información de tu negocio (servicios, precios, horarios)</li>
+                                <li><i class="fas fa-check"></i> Fotos o imágenes (si no tienes, uso bancos gratuitos)</li>
+                                <li><i class="fas fa-check"></i> Datos de contacto (WhatsApp, Telegram, email)</li>
+                                <li><i class="fas fa-check"></i> Logo (opcional, puedo diseñarte uno básico)</li>
+                            </ul>
+                            <p>Yo me encargo de <strong>todo lo técnico y creativo</strong>.</p>
                         </div>
-                        <h3>TechFix Reparaciones</h3>
-                        <p>Sitio para taller de reparación de móviles y computadoras con listado de servicios y precios.</p>
-                        <a href="#precios" class="btn btn-outline" style="margin-top: 15px;">Ver Plan Similar</a>
                     </div>
-                </div>
-                
-                <div class="portfolio-item">
-                    <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="portfolio-content">
-                        <div class="portfolio-tags">
-                            <span class="tag">Moda</span>
-                            <span class="tag">Retail</span>
+                    
+                    <!-- Pestaña 6: FAQ -->
+                    <div class="tab-content" id="tab-faq">
+                        <h3>Preguntas Frecuentes</h3>
+                        <p class="text-center">Resuelvo tus dudas más comunes sobre Landing Pages para negocios en Cuba.</p>
+                        
+                        <div class="faq-container">
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    ¿Qué es exactamente una Landing Page?
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Una Landing Page (página de aterrizaje) es una página web única y concisa diseñada con un objetivo específico: convertir visitantes en clientes potenciales. Es como un folleto digital interactivo que muestra lo mejor de tu negocio y guía al cliente a contactarte. Es más rápida, barata y efectiva para negocios locales que una web compleja con muchas páginas.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    ¿El alojamiento en GitHub Pages es realmente confiable?
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Totalmente. GitHub es una empresa de Microsoft, usada por millones de desarrolladores. GitHub Pages ofrece alojamiento gratuito, ultra rápido, con certificado de seguridad SSL y un tiempo de actividad del 99.9%. Es una solución técnica sólida que te ahorra el costo mensual de un hosting tradicional. Empresas como Spotify, Airbnb y Netflix usan GitHub para sus proyectos.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    ¿Puedo actualizar precios y textos yo mismo después?
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Sí, en los planes <strong>"Cliente Seguro"</strong> y <strong>"Presencia Total"</strong> te entrego un método sencillo para que tú mismo puedas modificar textos, precios y algunas imágenes sin necesidad de saber programación. Te capacito paso a paso. En el plan <strong>"Presencia Digital"</strong>, puedo hacer las actualizaciones por un costo adicional mínimo.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    ¿Por qué el dominio propio (.com) es tan caro como servicio adicional?
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Los dominios se compran a registradores internacionales y se pagan en dólares o euros. Debido a las restricciones y complejidades para realizar pagos online desde Cuba, el proceso de adquisición y renovación implica intermediarios y riesgos, lo que incrementa significativamente su costo local. Además, incluyo la gestión completa (compra, configuración DNS, email, SSL). Por eso es un servicio premium.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    ¿Qué pasa si necesito más páginas o funcionalidades después?
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Puedes escalar tu proyecto en cualquier momento. Ofrezco servicios adicionales como: más páginas (ej: catálogo completo, blog), integración con redes sociales, sistema de reservas online, chat en vivo, analítica avanzada, etc. Cada adición se cotiza por separado según la complejidad.</p>
+                                </div>
+                            </div>
                         </div>
-                        <h3>Boutique Estilo Único</h3>
-                        <p>Vitrina digital para tienda de ropa con catálogo, tallas disponibles y contacto directo.</p>
-                        <a href="#precios" class="btn btn-outline" style="margin-top: 15px;">Ver Plan Similar</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección de Precios -->
-    <section id="precios">
-        <div class="container">
-            <h2 class="section-title text-center">Inversión Inteligente</h2>
-            <p class="text-center">Elige el plan que mejor se adapte a las necesidades de tu negocio. <span class="highlight">Pago único, sin mensualidades.</span></p>
-            
-            <div class="precios-grid">
-                <div class="precio-card">
-                    <h3>Plan Básico</h3>
-                    <div class="precio-amount">8,000 CUP</div>
-                    <p class="precio-periodo">Inversión Única</p>
-                    <ul class="precio-features">
-                        <li><i class="fas fa-check"></i> Diseño responsive moderno</li>
-                        <li><i class="fas fa-check"></i> Hasta 4 secciones</li>
-                        <li><i class="fas fa-check"></i> Botones WhatsApp/Telegram</li>
-                        <li><i class="fas fa-check"></i> Formulario de contacto</li>
-                        <li><i class="fas fa-check"></i> Hosting gratis (GitHub Pages)</li>
-                        <li><i class="fas fa-check"></i> Entrega en 5 días</li>
-                    </ul>
-                    <a href="https://wa.me/5351234567?text=Hola,%20quiero%20el%20Plan%20Básico%20(8,000%20CUP)" target="_blank" class="btn">Seleccionar Plan</a>
-                </div>
-                
-                <div class="precio-card popular">
-                    <div class="popular-badge">MÁS POPULAR</div>
-                    <h3>Plan Profesional</h3>
-                    <div class="precio-amount">12,000 CUP</div>
-                    <p class="precio-periodo">Inversión Única</p>
-                    <ul class="precio-features">
-                        <li><i class="fas fa-check"></i> Todo del plan básico</li>
-                        <li><i class="fas fa-check"></i> Hasta 6 secciones</li>
-                        <li><i class="fas fa-check"></i> SEO básico incluido</li>
-                        <li><i class="fas fa-check"></i> Integración Google Maps</li>
-                        <li><i class="fas fa-check"></i> Panel para actualizar textos</li>
-                        <li><i class="fas fa-check"></i> Soporte 15 días</li>
-                        <li><i class="fas fa-check"></i> Entrega en 7 días</li>
-                    </ul>
-                    <a href="https://wa.me/5351234567?text=Hola,%20quiero%20el%20Plan%20Profesional%20(12,000%20CUP)" target="_blank" class="btn btn-whatsapp">Seleccionar Plan</a>
-                </div>
-                
-                <div class="precio-card">
-                    <h3>Plan Premium</h3>
-                    <div class="precio-amount">20,000 CUP</div>
-                    <p class="precio-periodo">Inversión Única</p>
-                    <ul class="precio-features">
-                        <li><i class="fas fa-check"></i> Todo del plan profesional</li>
-                        <li><i class="fas fa-check"></i> Dominio propio por 1 año*</li>
-                        <li><i class="fas fa-check"></i> Email profesional</li>
-                        <li><i class="fas fa-check"></i> Certificado SSL premium</li>
-                        <li><i class="fas fa-check"></i> Gestión completa del dominio</li>
-                        <li><i class="fas fa-check"></i> Soporte 30 días</li>
-                    </ul>
-                    <p style="font-size: 0.9rem; margin-top: 20px;"><em>*Renovación anual del dominio: 8,000-12,000 CUP adicionales</em></p>
-                    <a href="https://wa.me/5351234567?text=Hola,%20quiero%20el%20Plan%20Premium%20(20,000%20CUP)" target="_blank" class="btn">Consultar Disponibilidad</a>
-                </div>
-            </div>
-            
-            <div class="text-center" style="margin-top: 50px;">
-                <p><strong>¿Cuánto vale un cliente nuevo para tu negocio?</strong><br>
-                Con 2-3 ventas generadas por tu landing page, la inversión <span class="highlight">se recupera completamente</span>.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección de Proceso -->
-    <section id="proceso" style="background-color: #f1f8ff;">
-        <div class="container">
-            <h2 class="section-title text-center">Proceso de Trabajo</h2>
-            <p class="text-center">Así es como convertimos tu idea en una landing page funcional y efectiva.</p>
-            
-            <div class="proceso-timeline">
-                <div class="proceso-item">
-                    <div class="proceso-icon">1</div>
-                    <div class="proceso-content">
-                        <h3>Consulta Inicial</h3>
-                        <p>Analizamos tu negocio, objetivos y competencia. Definimos el alcance del proyecto sin compromiso.</p>
-                    </div>
-                </div>
-                
-                <div class="proceso-item">
-                    <div class="proceso-icon">2</div>
-                    <div class="proceso-content">
-                        <h3>Diseño y Desarrollo</h3>
-                        <p>Creo el diseño adaptado a tu negocio y desarrollo la landing page con las mejores prácticas técnicas.</p>
-                    </div>
-                </div>
-                
-                <div class="proceso-item">
-                    <div class="proceso-icon">3</div>
-                    <div class="proceso-content">
-                        <h3>Revisión y Ajustes</h3>
-                        <p>Te muestro el resultado para que des tu feedback. Realizamos los ajustes necesarios hasta que estés 100% satisfecho.</p>
-                    </div>
-                </div>
-                
-                <div class="proceso-item">
-                    <div class="proceso-icon">4</div>
-                    <div class="proceso-content">
-                        <h3>Lanzamiento y Capacitación</h3>
-                        <p>Publicamos tu página, te entrego todo el control y te capacito para que puedas actualizar contenidos.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección FAQ -->
-    <section id="faq">
-        <div class="container">
-            <h2 class="section-title text-center">Preguntas Frecuentes</h2>
-            <p class="text-center">Resuelvo tus dudas más comunes sobre landing pages para negocios en Cuba.</p>
-            
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        ¿Por qué una Landing Page y no una web completa?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Para negocios locales, una landing page es más efectiva porque: 1) Es más barata (inversión única), 2) Carga más rápido (esencial con nuestra conexión), 3) Es más directa (lleva al cliente directo a la acción), 4) No requiere mantenimiento complejo. Es la solución perfecta para empezar en internet.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        ¿Realmente funciona el hosting gratuito de GitHub?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Absolutamente. GitHub Pages es un servicio empresarial de Microsoft usado por millones de desarrolladores. Ofrece: 99.9% tiempo de actividad, certificado SSL gratuito, velocidad premium y seguridad de nivel empresarial. Es mucho más confiable que muchos hostings pagos económicos.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        ¿Puedo actualizar los precios después?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Sí, en los planes Profesional y Premium te enseño a actualizar textos, precios y algunas imágenes tú mismo mediante un método sencillo. No necesitas saber programación. En el plan Básico, puedo hacer las actualizaciones por un costo adicional mínimo.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        ¿Qué necesito para empezar?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Solo necesitas: 1) Información de tu negocio (servicios, precios, horarios), 2) Fotos o imágenes (si no tienes, uso bancos gratuitos), 3) Datos de contacto, 4) Logo (opcional, puedo diseñarte uno básico). Yo me encargo de todo lo técnico y creativo.</p>
                     </div>
                 </div>
             </div>
@@ -996,17 +1202,13 @@
     <!-- CTA Final -->
     <section id="cta">
         <div class="container">
-            <h2 class="text-center">Tu Negocio Merece Ser Visible</h2>
-            <p>Mientras otros siguen perdiendo clientes por no estar en internet, tú puedes dar el paso más inteligente para tu negocio. Una landing page profesional no es un gasto, es una inversión que trabaja 24/7 por ti.</p>
-            <p><strong>¿Listo para transformar tu presencia digital?</strong></p>
-            
-            <div class="hero-btns" style="margin-top: 40px;">
-                <a href="https://wa.me/5351234567?text=Hola,%20quiero%20empezar%20con%20mi%20Landing%20Page%20profesional" target="_blank" class="btn btn-whatsapp" style="padding: 15px 40px; font-size: 1.2rem;">
-                    <i class="fab fa-whatsapp"></i> ¡Quiero Mi Landing Page!
-                </a>
+            <h2>No Inviertas en Publicidad que Caduca. Invierte en tu Propia Vitrina Digital.</h2>
+            <p>Una Landing Page es un activo permanente para tu negocio. Mientras un anuncio en un grupo de WhatsApp desaparece en horas, tu página sigue atrayendo clientes día tras día, mes tras mes.</p>
+            <p><strong>¿Listo para dar el paso más inteligente para tu negocio?</strong></p>
+            <div class="hero-btns">
+                <a href="https://wa.me/5351234567?text=Hola,%20quiero%20empezar%20con%20mi%20Landing%20Page%20profesional" target="_blank" class="btn btn-whatsapp" style="font-size: 1.2rem; padding: 15px 40px;"><i class="fab fa-whatsapp"></i> ¡Contactar Ahora para Comenzar!</a>
             </div>
-            
-            <p style="margin-top: 30px; font-size: 1rem; opacity: 0.8;">Reservas tu proyecto con solo el 50% de anticipo. El resto al entregar.</p>
+            <p style="margin-top: 20px; font-size: 1rem;">Reservas tu proyecto con solo el 50% de anticipo. El resto al entregar.</p>
         </div>
     </section>
 
@@ -1016,7 +1218,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Visibilidad Digital Cuba</h3>
-                    <p>Especialistas en landing pages para negocios locales cubanos. Creamos soluciones digitales efectivas y accesibles.</p>
+                    <p>Especialistas en Landing Pages para negocios locales cubanos. Creamos soluciones digitales efectivas y accesibles.</p>
                     <p><strong>"Tu éxito en línea es nuestro compromiso."</strong></p>
                 </div>
                 
@@ -1054,26 +1256,73 @@
     </footer>
 
     <script>
-        // ===== SISTEMA DE PESTAÑAS =====
+        // ===== SISTEMA DE PESTAÑAS PRINCIPALES =====
         document.addEventListener('DOMContentLoaded', function() {
-            // Configurar pestañas
-            const tabBtns = document.querySelectorAll('.tab-btn');
-            const tabPanes = document.querySelectorAll('.tab-pane');
+            // Configurar pestañas principales
+            const tabNavBtns = document.querySelectorAll('.tab-nav-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
             
-            tabBtns.forEach(btn => {
+            tabNavBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     // Obtener el target
                     const target = btn.getAttribute('data-tab');
                     
                     // Remover active de todos
-                    tabBtns.forEach(b => b.classList.remove('active'));
-                    tabPanes.forEach(p => p.classList.remove('active'));
+                    tabNavBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
                     
                     // Añadir active al botón clickeado
                     btn.classList.add('active');
                     
-                    // Mostrar el panel correspondiente
+                    // Mostrar el contenido correspondiente
                     document.getElementById(`tab-${target}`).classList.add('active');
+                    
+                    // Actualizar URL sin recargar (opcional)
+                    history.pushState(null, null, `#${target}`);
+                });
+            });
+            
+            // ===== SUB-PESTAÑAS DE SERVICIOS =====
+            const subTabBtns = document.querySelectorAll('.sub-tab-btn');
+            const serviceDetails = document.querySelectorAll('.service-detail');
+            
+            subTabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const target = btn.getAttribute('data-subtab');
+                    
+                    // Remover active de todos
+                    subTabBtns.forEach(b => b.classList.remove('active'));
+                    serviceDetails.forEach(d => d.classList.remove('active'));
+                    
+                    // Añadir active al botón clickeado
+                    btn.classList.add('active');
+                    
+                    // Mostrar el detalle correspondiente
+                    document.getElementById(`service-${target}`).classList.add('active');
+                });
+            });
+            
+            // ===== FILTRO DE PORTAFOLIO =====
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.getAttribute('data-filter');
+                    
+                    // Remover active de todos los botones
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Añadir active al botón clickeado
+                    btn.classList.add('active');
+                    
+                    // Filtrar items del portafolio
+                    portfolioItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.classList.add('active');
+                        } else {
+                            item.classList.remove('active');
+                        }
+                    });
                 });
             });
             
@@ -1125,6 +1374,21 @@
                 });
             });
             
+            // ===== FUNCIÓN PARA CAMBIAR PESTAÑA DESDE ENLACES =====
+            window.switchTab = function(tabName) {
+                const tabBtn = document.querySelector(`.tab-nav-btn[data-tab="${tabName}"]`);
+                if (tabBtn) {
+                    tabBtn.click();
+                    
+                    // Scroll suave a las pestañas
+                    const tabsSection = document.getElementById('main-tabs');
+                    window.scrollTo({
+                        top: tabsSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            };
+            
             // ===== ANIMACIÓN AL SCROLL =====
             const observerOptions = {
                 threshold: 0.1,
@@ -1141,12 +1405,27 @@
             }, observerOptions);
             
             // Observar elementos para animar
-            document.querySelectorAll('.servicio-card, .portfolio-item, .precio-card').forEach(el => {
+            document.querySelectorAll('.benefit-card, .portfolio-item, .pricing-card, .step-content').forEach(el => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(20px)';
                 el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
                 observer.observe(el);
             });
+            
+            // ===== CARGAR PESTAÑA DESDE URL =====
+            function loadTabFromURL() {
+                const hash = window.location.hash.substring(1);
+                if (hash) {
+                    const tabBtn = document.querySelector(`.tab-nav-btn[data-tab="${hash}"]`);
+                    if (tabBtn) {
+                        setTimeout(() => tabBtn.click(), 100);
+                    }
+                }
+            }
+            
+            // Ejecutar al cargar y cuando cambia el hash
+            loadTabFromURL();
+            window.addEventListener('hashchange', loadTabFromURL);
         });
     </script>
 </body>
