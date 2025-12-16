@@ -1,0 +1,1888 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Solución - Reparación de Computadoras y Móviles Expertos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ===== VARIABLES Y RESET ===== */
+        :root {
+            --azul-oscuro: #1A365D;
+            --azul-medio: #2C5282;
+            --azul-claro: #4299E1;
+            --celeste: #63B3ED;
+            --gris-oscuro: #2D3748;
+            --gris-medio: #4A5568;
+            --gris-claro: #E2E8F0;
+            --blanco: #FFFFFF;
+            --verde: #38A169;
+            --rojo: #E53E3E;
+            --naranja: #DD6B20;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow-hover: 0 10px 25px rgba(0,0,0,0.15);
+            --transition: all 0.3s ease;
+            --border-radius: 10px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F7FAFC;
+            color: var(--gris-oscuro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--azul-claro);
+            color: var(--blanco);
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 2px solid var(--azul-claro);
+            cursor: pointer;
+            text-align: center;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: var(--azul-claro);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            border-color: #25D366;
+        }
+        
+        .btn-whatsapp:hover {
+            color: #25D366;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--azul-claro);
+            border-color: var(--azul-claro);
+        }
+        
+        .btn-outline:hover {
+            background: var(--azul-claro);
+            color: var(--blanco);
+        }
+        
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--azul-oscuro);
+            margin-bottom: 15px;
+        }
+        
+        .section-title .subtitle {
+            font-size: 1.1rem;
+            color: var(--gris-medio);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .highlight {
+            color: var(--azul-claro);
+            font-weight: 700;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: var(--verde);
+            color: var(--blanco);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        /* ===== HEADER ===== */
+        header {
+            background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--azul-medio) 100%);
+            color: var(--blanco);
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".05" fill="%23ffffff"/></svg>');
+            background-size: cover;
+            background-position: bottom;
+            opacity: 0.1;
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .logo i {
+            color: var(--celeste);
+        }
+        
+        .header-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .header-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .header-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--celeste);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .header-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        /* ===== NAVEGACIÓN ===== */
+        nav {
+            background: rgba(26, 54, 93, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--blanco);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-logo i {
+            color: var(--celeste);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--blanco);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--celeste);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--celeste);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--blanco);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* ===== SECCIÓN SERVICIOS ===== */
+        #servicios {
+            background: var(--blanco);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: var(--blanco);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--gris-claro);
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--azul-claro);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(66, 153, 225, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: var(--azul-claro);
+        }
+        
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: var(--azul-oscuro);
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            color: var(--gris-medio);
+            margin-bottom: 20px;
+        }
+        
+        .service-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--verde);
+            margin-bottom: 20px;
+        }
+        
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .service-tag {
+            background: rgba(56, 161, 105, 0.1);
+            color: var(--verde);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* ===== SECCIÓN DIAGNÓSTICO ===== */
+        #diagnostico {
+            background: linear-gradient(135deg, #F7FAFC 0%, #EDF2F7 100%);
+        }
+        
+        .diagnostico-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .diagnostico-box {
+            background: var(--blanco);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            box-shadow: var(--shadow);
+            margin-top: 40px;
+        }
+        
+        .diagnostico-steps {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+            position: relative;
+        }
+        
+        .diagnostico-steps::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gris-claro);
+            z-index: 1;
+        }
+        
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--azul-claro);
+            color: var(--blanco);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            border: 4px solid var(--blanco);
+        }
+        
+        .step-text {
+            font-weight: 600;
+            color: var(--azul-oscuro);
+        }
+        
+        .problemas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .problema-item {
+            background: var(--gris-claro);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: var(--transition);
+        }
+        
+        .problema-item:hover {
+            background: var(--azul-claro);
+            color: var(--blanco);
+        }
+        
+        .problema-item i {
+            font-size: 1.5rem;
+        }
+        
+        /* ===== SECCIÓN GARANTÍA ===== */
+        #garantia {
+            background: var(--blanco);
+        }
+        
+        .garantia-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .garantia-card {
+            background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--azul-medio) 100%);
+            color: var(--blanco);
+            padding: 50px;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+        
+        .garantia-card h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .garantia-card p {
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .garantia-badge {
+            background: var(--verde);
+            color: var(--blanco);
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: inline-block;
+        }
+        
+        .beneficios-list {
+            list-style: none;
+        }
+        
+        .beneficios-list li {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .beneficios-list i {
+            color: var(--verde);
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+        
+        /* ===== SECCIÓN ZONA DE COBERTURA ===== */
+        #cobertura {
+            background: linear-gradient(135deg, #F7FAFC 0%, #EDF2F7 100%);
+        }
+        
+        .cobertura-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .zonas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .zona-item {
+            background: var(--blanco);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .zona-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .zona-item h4 {
+            color: var(--azul-oscuro);
+            margin-bottom: 10px;
+        }
+        
+        .check-icon {
+            color: var(--verde);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* ===== SECCIÓN TESTIMONIOS ===== */
+        #testimonios {
+            background: var(--blanco);
+        }
+        
+        .testimonios-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 20px;
+        }
+        
+        .testimonial-card {
+            background: var(--gris-claro);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--azul-claro);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--azul-claro);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--blanco);
+            font-weight: 700;
+        }
+        
+        .author-info h4 {
+            color: var(--azul-oscuro);
+            margin-bottom: 5px;
+        }
+        
+        .author-rating {
+            color: var(--naranja);
+        }
+        
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .slider-btn {
+            background: var(--azul-claro);
+            color: var(--blanco);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .slider-btn:hover {
+            background: var(--azul-medio);
+            transform: scale(1.1);
+        }
+        
+        /* ===== SECCIÓN FAQ ===== */
+        #faq {
+            background: linear-gradient(135deg, #F7FAFC 0%, #EDF2F7 100%);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--blanco);
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .faq-question {
+            padding: 25px 30px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--blanco);
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            background: var(--gris-claro);
+        }
+        
+        .faq-question i {
+            transition: var(--transition);
+        }
+        
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-answer.open {
+            padding: 25px 30px;
+            max-height: 1000px;
+        }
+        
+        /* ===== SECCIÓN CONTACTO ===== */
+        #contacto {
+            background: var(--azul-oscuro);
+            color: var(--blanco);
+        }
+        
+        .contacto-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .contacto-info h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--celeste);
+        }
+        
+        .contacto-info p {
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .contacto-detalles {
+            margin-top: 40px;
+        }
+        
+        .contacto-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            gap: 15px;
+        }
+        
+        .contacto-item i {
+            color: var(--celeste);
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+        
+        .contacto-form {
+            background: var(--blanco);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--azul-oscuro);
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--gris-claro);
+            border-radius: var(--border-radius);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--azul-claro);
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--gris-oscuro);
+            color: var(--blanco);
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: var(--celeste);
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: var(--gris-claro);
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--celeste);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--celeste);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* ===== WHATSAPP FLOAT ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+        
+        .emergencia-badge {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background: var(--rojo);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .garantia-content, .contacto-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .logo {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .diagnostico-steps {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .diagnostico-steps::before {
+                width: 2px;
+                height: 100%;
+                left: 30px;
+                top: 0;
+            }
+            
+            .step {
+                flex-direction: row;
+                gap: 20px;
+            }
+            
+            .step-text {
+                text-align: left;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--azul-oscuro);
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .header-content h1 {
+                font-size: 2rem;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .header-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .emergencia-badge {
+                bottom: 100px;
+                right: 20px;
+                left: 20px;
+                text-align: center;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .diagnostico-box {
+                padding: 30px 20px;
+            }
+            
+            .garantia-card {
+                padding: 30px 20px;
+            }
+            
+            .contacto-form {
+                padding: 30px 20px;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5351234567?text=Hola%20PC%20Solución,%20necesito%20reparar%20mi%20computadora" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Emergencia Badge -->
+    <div class="emergencia-badge">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span>¡EMERGENCIA TÉCNICA! - Atención Inmediata</span>
+    </div>
+
+    <!-- Header / Hero -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-laptop-code"></i>
+                    PC Solución
+                </div>
+                <h1>Reparación Profesional de Computadoras y Móviles</h1>
+                <p>Especialistas en diagnóstico y solución de problemas técnicos. Más de 15 años de experiencia reparando todo tipo de dispositivos con garantía certificada.</p>
+                
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="clientesCount">1500+</div>
+                        <div class="stat-label">Clientes Satisfechos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="reparacionesCount">5000+</div>
+                        <div class="stat-label">Dispositivos Reparados</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="garantiaText">90 Días</div>
+                        <div class="stat-label">Garantía en Todas las Reparaciones</div>
+                    </div>
+                </div>
+                
+                <div class="header-buttons">
+                    <a href="#diagnostico" class="btn">Diagnóstico Gratis</a>
+                    <a href="https://wa.me/5351234567?text=Hola,%20necesito%20reparar%20mi%20dispositivo" class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Emergencia Técnica
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navegación -->
+    <nav>
+        <div class="container nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-laptop-code"></i>
+                PC Solución
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#diagnostico">Diagnóstico</a></li>
+                <li><a href="#garantia">Garantía</a></li>
+                <li><a href="#cobertura">Zona de Cobertura</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sección Servicios -->
+    <section id="servicios" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Servicios Especializados</h2>
+                <p class="subtitle">Ofrecemos soluciones completas para todos tus dispositivos tecnológicos con precios transparentes y sin sorpresas</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Servicio 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-medical"></i>
+                    </div>
+                    <h3>Reparación de Computadoras</h3>
+                    <p>Diagnóstico y reparación de laptops y PCs de escritorio. Cambio de componentes, limpieza interna y optimización del sistema.</p>
+                    <div class="service-price">Desde 1,500 CUP</div>
+                    <div class="service-tags">
+                        <span class="service-tag">Hardware</span>
+                        <span class="service-tag">Software</span>
+                        <span class="service-tag">Mantenimiento</span>
+                    </div>
+                </div>
+                
+                <!-- Servicio 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Reparación de Móviles</h3>
+                    <p>Cambio de pantallas, baterías, conectores de carga, módulos de cámara y reparación de software en todos los modelos.</p>
+                    <div class="service-price">Desde 800 CUP</div>
+                    <div class="service-tags">
+                        <span class="service-tag">Pantallas</span>
+                        <span class="service-tag">Baterías</span>
+                        <span class="service-tag">Software</span>
+                    </div>
+                </div>
+                
+                <!-- Servicio 3 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-virus"></i>
+                    </div>
+                    <h3>Limpieza de Virus y Optimización</h3>
+                    <p>Eliminación completa de virus, malware y spyware. Optimización del sistema operativo para máximo rendimiento.</p>
+                    <div class="service-price">Desde 500 CUP</div>
+                    <div class="service-tags">
+                        <span class="service-tag">Antivirus</span>
+                        <span class="service-tag">Optimización</span>
+                        <span class="service-tag">Seguridad</span>
+                    </div>
+                </div>
+                
+                <!-- Servicio 4 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Recuperación de Datos</h3>
+                    <p>Recuperación de archivos eliminados, fotos, documentos y carpetas de discos duros dañados o formateados.</p>
+                    <div class="service-price">Desde 2,000 CUP</div>
+                    <div class="service-tags">
+                        <span class="service-tag">Archivos</span>
+                        <span class="service-tag">Fotos</span>
+                        <span class="service-tag">Documentos</span>
+                    </div>
+                </div>
+                
+                <!-- Servicio 5 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Redes y WiFi</h3>
+                    <p>Configuración de redes domésticas, solución de problemas de conexión WiFi, amplificación de señal y seguridad de red.</p>
+                    <div class="service-price">Desde 1,000 CUP</div>
+                    <div class="service-tags">
+                        <span class="service-tag">WiFi</span>
+                        <span class="service-tag">Router</span>
+                        <span class="service-tag">Seguridad</span>
+                    </div>
+                </div>
+                
+                <!-- Servicio 6 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Soporte Técnico Remoto</h3>
+                    <p>Asistencia técnica a distancia para resolver problemas sin necesidad de desplazamiento. Rápido y eficiente.</p>
+                    <div class="service-price">Desde 300 CUP</div>
+                    <div class="service-tags">
+                        <span class="service-tag">Remoto</span>
+                        <span class="service-tag">Asistencia</span>
+                        <span class="service-tag">24/7</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="https://wa.me/5351234567?text=Hola,%20quiero%20más%20información%20sobre%20sus%20servicios" class="btn btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Consultar Todos los Servicios
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Diagnóstico -->
+    <section id="diagnostico" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Diagnóstico Gratuito en 3 Pasos</h2>
+                <p class="subtitle">Identificamos el problema de tu dispositivo y te damos una solución clara antes de cualquier reparación</p>
+            </div>
+            
+            <div class="diagnostico-content">
+                <div class="diagnostico-box">
+                    <h3 style="text-align: center; margin-bottom: 30px; color: var(--azul-oscuro);">¿Tu dispositivo tiene alguno de estos problemas?</h3>
+                    
+                    <div class="problemas-grid">
+                        <div class="problema-item">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>No enciende</span>
+                        </div>
+                        <div class="problema-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Muy lento</span>
+                        </div>
+                        <div class="problema-item">
+                            <i class="fas fa-bug"></i>
+                            <span>Tiene virus</span>
+                        </div>
+                        <div class="problema-item">
+                            <i class="fas fa-battery-empty"></i>
+                            <span>No carga</span>
+                        </div>
+                        <div class="problema-item">
+                            <i class="fas fa-temperature-high"></i>
+                            <span>Sobrecalentamiento</span>
+                        </div>
+                        <div class="problema-item">
+                            <i class="fas fa-file-excel"></i>
+                            <span>Pérdida de datos</span>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 40px;">
+                        <h4 style="text-align: center; margin-bottom: 30px; color: var(--azul-oscuro);">Nuestro proceso de diagnóstico</h4>
+                        
+                        <div class="diagnostico-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">Contacto y Descripción del Problema</div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">Evaluación Técnica Profesional</div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-text">Presupuesto Sin Compromiso</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 40px;">
+                        <a href="https://wa.me/5351234567?text=Hola,%20necesito%20un%20diagnóstico%20para%20mi%20dispositivo" class="btn btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Solicitar Diagnóstico Gratis
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Garantía -->
+    <section id="garantia" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Garantía de Calidad en Todas Nuestras Reparaciones</h2>
+                <p class="subtitle">Tu tranquilidad es nuestra prioridad. Todas nuestras reparaciones incluyen garantía certificada</p>
+            </div>
+            
+            <div class="garantia-content">
+                <div class="garantia-card">
+                    <h3><i class="fas fa-shield-alt"></i> Garantía Certificada</h3>
+                    <p>Trabajamos con los más altos estándares de calidad. Si el problema reaparece dentro del periodo de garantía, lo reparamos sin costo adicional.</p>
+                    <div class="garantia-badge">90 Días de Garantía</div>
+                </div>
+                
+                <div>
+                    <h3 style="color: var(--azul-oscuro); margin-bottom: 30px;">¿Por qué elegirnos?</h3>
+                    <ul class="beneficios-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4 style="margin-bottom: 5px;">Repuestos de Calidad</h4>
+                                <p>Trabajamos solo con componentes originales o de alta calidad certificada.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4 style="margin-bottom: 5px;">Técnicos Certificados</h4>
+                                <p>Nuestro equipo tiene certificaciones en las principales marcas y tecnologías.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4 style="margin-bottom: 5px;">Transparencia Total</h4>
+                                <p>Te mostramos el problema, explicamos la solución y el precio antes de comenzar.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4 style="margin-bottom: 5px;">Atención Personalizada</h4>
+                                <p>Cada cliente recibe atención personalizada según sus necesidades específicas.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Zona de Cobertura -->
+    <section id="cobertura" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Zona de Cobertura en La Habana</h2>
+                <p class="subtitle">Servicio a domicilio disponible en estas zonas. Para otras ubicaciones, consultar disponibilidad</p>
+            </div>
+            
+            <div class="cobertura-content">
+                <div class="zonas-grid">
+                    <div class="zona-item">
+                        <div class="check-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4>Vedado</h4>
+                        <p>Servicio completo a domicilio</p>
+                    </div>
+                    <div class="zona-item">
+                        <div class="check-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4>Playa</h4>
+                        <p>Atención inmediata disponible</p>
+                    </div>
+                    <div class="zona-item">
+                        <div class="check-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4>Centro Habana</h4>
+                        <p>Reparaciones express</p>
+                    </div>
+                    <div class="zona-item">
+                        <div class="check-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4>Miramar</h4>
+                        <p>Cobertura empresarial</p>
+                    </div>
+                    <div class="zona-item">
+                        <div class="check-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4>Habana Vieja</h4>
+                        <p>Servicio prioritario</p>
+                    </div>
+                    <div class="zona-item">
+                        <div class="check-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4>Cerro</h4>
+                        <p>Consultar horarios</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <p style="margin-bottom: 20px;">¿No ves tu zona en la lista? Contáctanos para verificar disponibilidad.</p>
+                    <a href="https://wa.me/5351234567?text=Hola,%20vivo%20en%20[Tu%20Zona],%20¿tienen%20cobertura%20allí?" class="btn btn-outline" target="_blank">
+                        Consultar Mi Zona
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Testimonios -->
+    <section id="testimonios" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lo Que Dicen Nuestros Clientes</h2>
+                <p class="subtitle">Más de 1,500 clientes satisfechos confían en nuestros servicios técnicos</p>
+            </div>
+            
+            <div class="testimonios-container">
+                <div class="testimonial-slider" id="testimonialSlider">
+                    <div class="testimonial-track" id="testimonialTrack">
+                        <!-- Testimonio 1 -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-text">
+                                    "Mi laptop tenía un problema grave de sobrecalentamiento y ya estaba pensando en comprar una nueva. PC Solución no solo la reparó, sino que la dejó mejor que nueva. El servicio fue rápido, profesional y con una garantía que me dio total tranquilidad."
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">AC</div>
+                                    <div class="author-info">
+                                        <h4>Alejandro Castillo</h4>
+                                        <div class="author-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonio 2 -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-text">
+                                    "Perdí todos los archivos importantes de mi trabajo cuando se dañó el disco duro. Pensé que había perdido todo, pero el equipo de PC Solución recuperó el 100% de mis datos. Son verdaderos profesionales, muy recomendables para problemas complejos."
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">MR</div>
+                                    <div class="author-info">
+                                        <h4>María Rodríguez</h4>
+                                        <div class="author-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonio 3 -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-text">
+                                    "Excelente servicio. Mi teléfono se cayó y la pantalla se rompió completamente. Me hicieron el cambio en menos de una hora, con una pantalla de excelente calidad y a un precio justo. Además, la garantía de 90 días me dio mucha confianza."
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">CP</div>
+                                    <div class="author-info">
+                                        <h4>Carlos Pérez</h4>
+                                        <div class="author-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slider-controls">
+                        <button class="slider-btn" id="prevBtn">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="slider-btn" id="nextBtn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección FAQ -->
+    <section id="faq" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Preguntas Frecuentes</h2>
+                <p class="subtitle">Resolvemos tus dudas más comunes sobre nuestros servicios técnicos</p>
+            </div>
+            
+            <div class="faq-container">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Cuánto tiempo tarda una reparación?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>El tiempo varía según la complejidad del problema. Reparaciones simples (cambio de pantalla, limpieza de virus) pueden tomar de 1 a 2 horas. Problemas más complejos (cambio de componentes, recuperación de datos) pueden tomar de 24 a 48 horas. Siempre te damos un estimado preciso al hacer el diagnóstico.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Los repuestos son originales?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Trabajamos con repuestos de la más alta calidad disponible en el mercado. Para marcas específicas, usamos componentes originales cuando es posible. Cuando no hay disponibilidad de originales, usamos alternativas de alta calidad con certificación. Siempre te informamos sobre el tipo de repuesto que usaremos y te mostramos las opciones disponibles.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Qué pasa si el problema reaparece después de la reparación?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Todas nuestras reparaciones tienen <strong>90 días de garantía</strong>. Si el mismo problema reaparece dentro de este periodo, lo reparamos sin costo adicional. La garantía cubre defectos en la reparación realizada y en los componentes instalados por nosotros.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Ofrecen servicio a domicilio?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, ofrecemos servicio a domicilio en las zonas de cobertura mencionadas. Para reparaciones que requieren equipos especializados, recomendamos traer el dispositivo a nuestro taller. El diagnóstico inicial puede hacerse a domicilio, y si la reparación es simple, la hacemos en el momento.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Cómo puedo saber el costo aproximado antes de llevar el equipo?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Puedes contactarnos por WhatsApp y describirnos el problema. Con esa información te daremos un rango de precios aproximado. El precio exacto se determina después del diagnóstico técnico, que es completamente gratuito. Nunca procedemos con una reparación sin tu aprobación del presupuesto final.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: var(--celeste);">Contacto Rápido</h2>
+                <p class="subtitle" style="color: rgba(255,255,255,0.8);">Estamos listos para ayudarte con cualquier problema técnico. Contáctanos ahora mismo</p>
+            </div>
+            
+            <div class="contacto-content">
+                <div class="contacto-info">
+                    <h3>¿Listo para resolver tu problema técnico?</h3>
+                    <p>Contáctanos por cualquiera de estos medios. Respondemos en menos de 15 minutos durante nuestro horario de atención.</p>
+                    
+                    <div class="contacto-detalles">
+                        <div class="contacto-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <h4>WhatsApp (Respuesta Rápida)</h4>
+                                <p>+53 5123 4567</p>
+                            </div>
+                        </div>
+                        <div class="contacto-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Teléfono</h4>
+                                <p>+53 7 123 4567</p>
+                            </div>
+                        </div>
+                        <div class="contacto-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Horario de Atención</h4>
+                                <p>Lunes a Sábado: 8:00 AM - 8:00 PM</p>
+                                <p>Domingos: 9:00 AM - 5:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="contacto-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Taller Principal</h4>
+                                <p>Calle 23 #456, entre L y M, Vedado, La Habana</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contacto-form">
+                    <h3 style="color: var(--azul-oscuro); margin-bottom: 25px;">Envíanos un Mensaje</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo</label>
+                            <input type="text" id="nombre" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono / WhatsApp</label>
+                            <input type="tel" id="telefono" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="problema">Describe tu problema</label>
+                            <textarea id="problema" class="form-control" placeholder="Ej: Mi laptop no enciende, se calienta mucho, tiene pantalla azul..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="dispositivo">Tipo de dispositivo</label>
+                            <select id="dispositivo" class="form-control" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="laptop">Laptop</option>
+                                <option value="pc">PC de Escritorio</option>
+                                <option value="movil">Móvil / Tablet</option>
+                                <option value="impresora">Impresora</option>
+                                <option value="red">Problema de Red / WiFi</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i> Enviar por WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-laptop-code"></i>
+                        PC Solución
+                    </div>
+                    <p>Especialistas en reparación de computadoras y dispositivos móviles con más de 15 años de experiencia y miles de clientes satisfechos.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5351234567" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://telegram.org" target="_blank"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Servicios</h3>
+                    <ul class="footer-links">
+                        <li><a href="#servicios">Reparación de Computadoras</a></li>
+                        <li><a href="#servicios">Reparación de Móviles</a></li>
+                        <li><a href="#servicios">Limpieza de Virus</a></li>
+                        <li><a href="#servicios">Recuperación de Datos</a></li>
+                        <li><a href="#servicios">Redes y WiFi</a></li>
+                        <li><a href="#servicios">Soporte Remoto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#diagnostico">Diagnóstico Gratis</a></li>
+                        <li><a href="#garantia">Nuestra Garantía</a></li>
+                        <li><a href="#cobertura">Zona de Cobertura</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
+                        <li><a href="#faq">Preguntas Frecuentes</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://wa.me/5351234567" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp: +53 5123 4567</a></li>
+                        <li><a href="tel:+5371234567"><i class="fas fa-phone"></i> Teléfono: +53 7 123 4567</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Calle 23 #456, Vedado, La Habana</li>
+                        <li><i class="fas fa-clock"></i> Lunes a Sábado: 8:00 AM - 8:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 PC Solución. Todos los derechos reservados.</p>
+                <p style="margin-top: 10px;">Esta landing page es un ejemplo creado por Visibilidad Digital Cuba</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== MENÚ MÓVIL =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Cerrar menú al hacer clic en un enlace
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+            
+            // ===== SLIDER DE TESTIMONIOS =====
+            const track = document.getElementById('testimonialTrack');
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+            
+            function updateSlider() {
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+            
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateSlider();
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateSlider();
+            });
+            
+            // Auto-slide cada 5 segundos
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateSlider();
+            }, 5000);
+            
+            // ===== FAQ ACORDEÓN =====
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const icon = question.querySelector('i');
+                    
+                    // Cerrar otras respuestas (acordeón)
+                    document.querySelectorAll('.faq-answer.open').forEach(openAnswer => {
+                        if (openAnswer !== answer) {
+                            openAnswer.classList.remove('open');
+                            openAnswer.previousElementSibling.querySelector('i').classList.remove('fa-chevron-up');
+                            openAnswer.previousElementSibling.querySelector('i').classList.add('fa-chevron-down');
+                        }
+                    });
+                    
+                    // Alternar respuesta actual
+                    answer.classList.toggle('open');
+                    
+                    // Cambiar ícono
+                    if (answer.classList.contains('open')) {
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    } else {
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                });
+            });
+            
+            // ===== FORMULARIO DE CONTACTO =====
+            const contactForm = document.getElementById('contactForm');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const nombre = document.getElementById('nombre').value;
+                const telefono = document.getElementById('telefono').value;
+                const problema = document.getElementById('problema').value;
+                const dispositivo = document.getElementById('dispositivo').value;
+                
+                const mensaje = `*Nueva Consulta Técnica*%0A%0A*Nombre:* ${nombre}%0A*Teléfono:* ${telefono}%0A*Dispositivo:* ${dispositivo}%0A*Problema:* ${problema}%0A%0A*Fecha:* ${new Date().toLocaleDateString()}`;
+                
+                window.open(`https://wa.me/5351234567?text=${mensaje}`, '_blank');
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Mostrar mensaje de éxito
+                alert('¡Gracias! Serás redirigido a WhatsApp para completar tu consulta.');
+            });
+            
+            // ===== CONTADORES ANIMADOS =====
+            function animateCounter(elementId, finalValue, duration = 2000) {
+                const element = document.getElementById(elementId);
+                const startValue = 0;
+                const increment = finalValue / (duration / 16); // 60fps
+                let currentValue = startValue;
+                
+                const timer = setInterval(() => {
+                    currentValue += increment;
+                    if (currentValue >= finalValue) {
+                        element.textContent = finalValue + (elementId === 'clientesCount' ? '+' : '');
+                        clearInterval(timer);
+                    } else {
+                        element.textContent = Math.floor(currentValue) + (elementId === 'clientesCount' ? '+' : '');
+                    }
+                }, 16);
+            }
+            
+            // Iniciar contadores cuando la sección sea visible
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter('clientesCount', 1500);
+                        animateCounter('reparacionesCount', 5000);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            observer.observe(document.querySelector('header'));
+            
+            // ===== ANIMACIÓN AL SCROLL =====
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            // Observar elementos para animar
+            document.querySelectorAll('.service-card, .problema-item, .zona-item').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                scrollObserver.observe(el);
+            });
+            
+            // ===== SMOOTH SCROLL =====
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        
+                        // Cerrar menú móvil si está abierto
+                        if (navLinks.classList.contains('active')) {
+                            navLinks.classList.remove('active');
+                            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                        }
+                        
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
