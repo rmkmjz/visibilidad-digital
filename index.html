@@ -38,6 +38,7 @@
             color: #333;
             line-height: 1.6;
             overflow-x: hidden;
+            padding-top: 0; /* Eliminamos el padding superior para móviles */
         }
         
         .container {
@@ -120,7 +121,7 @@
         header {
             background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
             color: white;
-            padding: 100px 0;
+            padding: 100px 0 80px; /* Reducimos padding inferior para móviles */
             position: relative;
             overflow: hidden;
         }
@@ -167,13 +168,28 @@
             margin-top: 40px;
         }
         
-        /* ===== SISTEMA DE PESTAÑAS PRINCIPAL ===== */
-        .main-tabs {
+        /* ===== SISTEMA DE PESTAÑAS FIJAS (OPTIMIZADO PARA MÓVILES) ===== */
+        .fixed-tabs-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
             background: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            margin-top: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: none; /* Inicialmente oculto */
+            max-height: 70vh; /* Limitamos la altura máxima en móviles */
+            overflow-y: auto; /* Permitimos scroll si hay muchas pestañas */
+        }
+        
+        .fixed-tabs-nav.visible {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
         }
         
         .tabs-navigation {
@@ -189,10 +205,10 @@
         .tab-nav-btn {
             flex: 1;
             min-width: 150px;
-            padding: 20px;
+            padding: 15px 10px; /* Reducimos padding para móviles */
             background: none;
             border: none;
-            font-size: 1.1rem;
+            font-size: 1rem; /* Reducimos tamaño de fuente */
             font-weight: 600;
             color: #666;
             cursor: pointer;
@@ -200,9 +216,10 @@
             text-align: center;
             position: relative;
             display: flex;
+            flex-direction: column; /* Apilamos ícono y texto */
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 5px; /* Reducimos espacio entre ícono y texto */
         }
         
         .tab-nav-btn:hover {
@@ -226,7 +243,41 @@
         }
         
         .tab-nav-btn i {
-            font-size: 1.2rem;
+            font-size: 1.1rem; /* Reducimos tamaño de íconos */
+        }
+        
+        .tab-nav-btn .tab-text {
+            font-size: 0.85rem; /* Texto más pequeño para móviles */
+            display: block;
+        }
+        
+        /* Botón para abrir/cerrar pestañas en móviles */
+        .mobile-tabs-toggle {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            border: none;
+            font-size: 1.5rem;
+            z-index: 1001;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .mobile-tabs-toggle:hover {
+            background: var(--primary);
+            transform: scale(1.1);
+        }
+        
+        .mobile-tabs-toggle.active {
+            background: var(--accent);
+            transform: rotate(45deg);
         }
         
         .tabs-content-wrapper {
@@ -694,7 +745,7 @@
             text-align: center;
         }
         
-        /* Responsive */
+        /* ===== RESPONSIVE OPTIMIZADO PARA MÓVILES ===== */
         @media (max-width: 992px) {
             header h1 {
                 font-size: 2.5rem;
@@ -707,24 +758,68 @@
             .pricing-card.popular {
                 transform: none;
             }
+            
+            .tab-nav-btn {
+                min-width: 120px; /* Reducimos ancho mínimo */
+            }
+            
+            .tab-nav-btn .tab-text {
+                font-size: 0.8rem; /* Texto aún más pequeño */
+            }
         }
         
         @media (max-width: 768px) {
+            .mobile-tabs-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .fixed-tabs-nav {
+                max-height: 60vh; /* Altura máxima reducida en móviles */
+                top: auto;
+                bottom: 0;
+                transform: translateY(100%);
+                animation: slideUp 0.3s ease;
+                box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+            }
+            
+            .fixed-tabs-nav.visible {
+                transform: translateY(0);
+            }
+            
+            @keyframes slideUp {
+                from { transform: translateY(100%); }
+                to { transform: translateY(0); }
+            }
+            
             .tabs-navigation {
-                flex-direction: column;
+                flex-direction: row;
+                flex-wrap: wrap;
+                max-height: 55vh;
+                overflow-y: auto;
             }
             
             .tab-nav-btn {
-                min-width: 100%;
-                border-bottom: 1px solid #e0e0e0;
+                min-width: calc(50% - 10px); /* 2 columnas en móviles */
+                padding: 12px 5px;
+                font-size: 0.9rem;
+            }
+            
+            .tab-nav-btn i {
+                font-size: 1rem;
+                margin-bottom: 3px;
+            }
+            
+            .tab-nav-btn .tab-text {
+                font-size: 0.75rem;
             }
             
             .tab-nav-btn.active::after {
-                width: 5px;
-                height: 100%;
-                top: 0;
-                left: 0;
+                width: 100%;
+                height: 3px;
                 bottom: 0;
+                left: 0;
             }
             
             .process-timeline::before {
@@ -765,6 +860,15 @@
             .portfolio-buttons {
                 flex-direction: column;
             }
+            
+            .tabs-content-wrapper {
+                padding: 30px 20px;
+            }
+            
+            /* Ajustamos el padding superior del body cuando las pestañas están visibles */
+            body.tabs-visible {
+                padding-bottom: 60vh; /* Espacio para que el contenido no quede oculto */
+            }
         }
         
         @media (max-width: 576px) {
@@ -773,20 +877,82 @@
             }
             
             header {
-                padding: 80px 0;
+                padding: 80px 0 60px;
             }
             
             header h1 {
                 font-size: 2rem;
             }
             
-            .tabs-content-wrapper {
-                padding: 30px 20px;
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .tab-nav-btn {
+                min-width: calc(50% - 5px); /* Ajustamos para pantallas muy pequeñas */
+            }
+            
+            .mobile-tabs-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .fixed-tabs-nav {
+                max-height: 50vh; /* Altura aún más reducida en móviles pequeños */
+            }
+            
+            .tabs-navigation {
+                max-height: 45vh;
+            }
+            
+            #cta {
+                padding: 80px 0;
+            }
+            
+            #cta h2 {
+                font-size: 2rem;
+            }
+            
+            #cta p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .tab-nav-btn {
+                min-width: 100%; /* 1 columna en pantallas muy pequeñas */
+            }
+            
+            .tabs-navigation {
+                flex-direction: column;
+            }
+        }
+        
+        /* Para tablets en orientación horizontal */
+        @media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+            .fixed-tabs-nav {
+                max-height: 50vh;
+            }
+            
+            .tabs-navigation {
+                max-height: 45vh;
+            }
+            
+            .tab-nav-btn {
+                min-width: calc(33.33% - 10px); /* 3 columnas en tablets horizontales */
             }
         }
     </style>
 </head>
 <body>
+    <!-- Botón flotante para abrir/cerrar pestañas en móviles -->
+    <button class="mobile-tabs-toggle" id="mobileTabsToggle">
+        <i class="fas fa-th"></i>
+    </button>
+
     <!-- Header / Hero -->
     <header>
         <div class="container">
@@ -801,6 +967,36 @@
         </div>
     </header>
 
+    <!-- Pestañas Fijas (se mostrarán al hacer scroll) -->
+    <nav class="fixed-tabs-nav" id="fixedTabsNav">
+        <div class="tabs-navigation">
+            <button class="tab-nav-btn active" data-tab="why">
+                <i class="fas fa-question-circle"></i>
+                <span class="tab-text">¿Por Qué?</span>
+            </button>
+            <button class="tab-nav-btn" data-tab="services">
+                <i class="fas fa-cogs"></i>
+                <span class="tab-text">Servicios</span>
+            </button>
+            <button class="tab-nav-btn" data-tab="portfolio">
+                <i class="fas fa-images"></i>
+                <span class="tab-text">Portafolio</span>
+            </button>
+            <button class="tab-nav-btn" data-tab="pricing">
+                <i class="fas fa-tags"></i>
+                <span class="tab-text">Precios</span>
+            </button>
+            <button class="tab-nav-btn" data-tab="process">
+                <i class="fas fa-tasks"></i>
+                <span class="tab-text">Proceso</span>
+            </button>
+            <button class="tab-nav-btn" data-tab="faq">
+                <i class="fas fa-comments"></i>
+                <span class="tab-text">FAQ</span>
+            </button>
+        </div>
+    </nav>
+
     <!-- Sistema de Pestañas Principal -->
     <section id="main-tabs">
         <div class="container">
@@ -808,27 +1004,6 @@
             <p class="text-center">Explora cada aspecto de nuestro servicio en las pestañas a continuación.</p>
             
             <div class="main-tabs">
-                <div class="tabs-navigation">
-                    <button class="tab-nav-btn active" data-tab="why">
-                        <i class="fas fa-question-circle"></i> ¿Por Qué?
-                    </button>
-                    <button class="tab-nav-btn" data-tab="services">
-                        <i class="fas fa-cogs"></i> Servicios
-                    </button>
-                    <button class="tab-nav-btn" data-tab="portfolio">
-                        <i class="fas fa-images"></i> Portafolio
-                    </button>
-                    <button class="tab-nav-btn" data-tab="pricing">
-                        <i class="fas fa-tags"></i> Precios
-                    </button>
-                    <button class="tab-nav-btn" data-tab="process">
-                        <i class="fas fa-tasks"></i> Proceso
-                    </button>
-                    <button class="tab-nav-btn" data-tab="faq">
-                        <i class="fas fa-comments"></i> FAQ
-                    </button>
-                </div>
-                
                 <div class="tabs-content-wrapper">
                     <!-- Pestaña 1: ¿Por Qué? -->
                     <div class="tab-content active" id="tab-why">
@@ -1372,12 +1547,61 @@
     </footer>
 
     <script>
-        // ===== SISTEMA DE PESTAÑAS PRINCIPALES =====
+        // ===== SISTEMA DE PESTAÑAS FIJAS OPTIMIZADO PARA MÓVILES =====
         document.addEventListener('DOMContentLoaded', function() {
-            // Configurar pestañas principales
+            // Elementos de las pestañas fijas
+            const fixedTabsNav = document.getElementById('fixedTabsNav');
+            const mobileTabsToggle = document.getElementById('mobileTabsToggle');
+            const mainTabsSection = document.getElementById('main-tabs');
             const tabNavBtns = document.querySelectorAll('.tab-nav-btn');
             const tabContents = document.querySelectorAll('.tab-content');
             
+            // Verificar si es dispositivo móvil
+            const isMobile = window.innerWidth <= 768;
+            
+            // Mostrar/ocultar pestañas fijas al hacer scroll (solo en escritorio)
+            function toggleFixedTabs() {
+                if (!isMobile) {
+                    const mainTabsRect = mainTabsSection.getBoundingClientRect();
+                    
+                    // Si la sección de pestañas principal está visible en la ventana
+                    if (mainTabsRect.top <= 0) {
+                        fixedTabsNav.classList.add('visible');
+                    } else {
+                        fixedTabsNav.classList.remove('visible');
+                    }
+                }
+            }
+            
+            // Controlar el botón de toggle en móviles
+            function toggleMobileTabs() {
+                if (isMobile) {
+                    fixedTabsNav.classList.toggle('visible');
+                    mobileTabsToggle.classList.toggle('active');
+                    document.body.classList.toggle('tabs-visible');
+                    
+                    // Cambiar ícono del botón
+                    if (mobileTabsToggle.classList.contains('active')) {
+                        mobileTabsToggle.innerHTML = '<i class="fas fa-times"></i>';
+                    } else {
+                        mobileTabsToggle.innerHTML = '<i class="fas fa-th"></i>';
+                    }
+                }
+            }
+            
+            // Cerrar pestañas al hacer clic fuera (solo en móviles)
+            function closeMobileTabs(e) {
+                if (isMobile && fixedTabsNav.classList.contains('visible')) {
+                    if (!fixedTabsNav.contains(e.target) && e.target !== mobileTabsToggle) {
+                        fixedTabsNav.classList.remove('visible');
+                        mobileTabsToggle.classList.remove('active');
+                        mobileTabsToggle.innerHTML = '<i class="fas fa-th"></i>';
+                        document.body.classList.remove('tabs-visible');
+                    }
+                }
+            }
+            
+            // Configurar pestañas principales
             tabNavBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     // Obtener el target
@@ -1393,8 +1617,26 @@
                     // Mostrar el contenido correspondiente
                     document.getElementById(`tab-${target}`).classList.add('active');
                     
-                    // Actualizar URL sin recargar (opcional)
+                    // Actualizar URL sin recargar
                     history.pushState(null, null, `#${target}`);
+                    
+                    // Scroll suave a la sección de pestañas si está oculta
+                    if (window.scrollY < mainTabsSection.offsetTop) {
+                        window.scrollTo({
+                            top: mainTabsSection.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                    
+                    // En móviles, cerrar las pestañas después de seleccionar una
+                    if (isMobile) {
+                        setTimeout(() => {
+                            fixedTabsNav.classList.remove('visible');
+                            mobileTabsToggle.classList.remove('active');
+                            mobileTabsToggle.innerHTML = '<i class="fas fa-th"></i>';
+                            document.body.classList.remove('tabs-visible');
+                        }, 300);
+                    }
                 });
             });
             
@@ -1528,6 +1770,21 @@
                 observer.observe(el);
             });
             
+            // ===== ESCUCHAR EVENTOS =====
+            
+            // Evento para el botón de toggle en móviles
+            mobileTabsToggle.addEventListener('click', toggleMobileTabs);
+            
+            // Evento para cerrar pestañas al hacer clic fuera
+            document.addEventListener('click', closeMobileTabs);
+            
+            // En escritorio, escuchar el scroll para mostrar/ocultar pestañas fijas
+            if (!isMobile) {
+                window.addEventListener('scroll', toggleFixedTabs);
+                // Ejecutar al cargar para verificar posición inicial
+                toggleFixedTabs();
+            }
+            
             // ===== CARGAR PESTAÑA DESDE URL =====
             function loadTabFromURL() {
                 const hash = window.location.hash.substring(1);
@@ -1542,13 +1799,57 @@
             // Ejecutar al cargar y cuando cambia el hash
             loadTabFromURL();
             window.addEventListener('hashchange', loadTabFromURL);
+            
+            // ===== MARCAR PESTAÑA ACTIVA BASADA EN SCROLL (solo escritorio) =====
+            function highlightActiveTabOnScroll() {
+                if (!isMobile) {
+                    const tabContents = document.querySelectorAll('.tab-content');
+                    const tabsSection = document.getElementById('main-tabs');
+                    const tabsRect = tabsSection.getBoundingClientRect();
+                    
+                    // Solo si estamos en la sección de pestañas
+                    if (tabsRect.top <= 100 && tabsRect.bottom >= 100) {
+                        let currentTab = 'why';
+                        
+                        // Encontrar qué tab-content está más visible
+                        tabContents.forEach(tab => {
+                            const tabRect = tab.getBoundingClientRect();
+                            if (tabRect.top <= 150 && tabRect.bottom >= 150) {
+                                currentTab = tab.id.replace('tab-', '');
+                            }
+                        });
+                        
+                        // Actualizar botón activo
+                        tabNavBtns.forEach(btn => {
+                            if (btn.getAttribute('data-tab') === currentTab) {
+                                btn.classList.add('active');
+                            } else {
+                                btn.classList.remove('active');
+                            }
+                        });
+                    }
+                }
+            }
+            
+            // Escuchar scroll para actualizar pestaña activa (solo escritorio)
+            if (!isMobile) {
+                window.addEventListener('scroll', highlightActiveTabOnScroll);
+            }
+            
+            // ===== AJUSTAR PARA REDIMENSIONAMIENTO DE VENTANA =====
+            window.addEventListener('resize', function() {
+                // Si cambia de móvil a escritorio o viceversa
+                const newIsMobile = window.innerWidth <= 768;
+                if (newIsMobile !== isMobile) {
+                    // Recargar la página para aplicar los estilos correctos
+                    // Esto es necesario porque algunos estilos se aplican condicionalmente
+                    window.location.reload();
+                }
+            });
         });
         
         // ===== FUNCIONES PARA VER EJEMPLOS =====
-        // Ahora los botones son enlaces directos, no necesitamos JavaScript
-        // pero mantenemos esta función para compatibilidad si hay algún botón que aún use onclick
         window.viewExample = function(exampleType) {
-            // URLs de los ejemplos (en la carpeta /portafolio/)
             const exampleURLs = {
                 'cafeteria': 'portafolio/cafeteria/index.html',
                 'taller': 'portafolio/taller/index.html',
@@ -1560,7 +1861,6 @@
 
             const url = exampleURLs[exampleType];
             if (url) {
-                // Abrir en una nueva pestaña
                 window.open(url, '_blank');
             } else {
                 alert('Ejemplo no disponible en este momento.');
