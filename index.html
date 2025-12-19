@@ -429,6 +429,14 @@
             flex-wrap: wrap;
         }
         
+        .example-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-top: 20px;
+            border-left: 4px solid var(--secondary);
+        }
+        
         /* Pestaña: Precios */
         .pricing-cards {
             display: grid;
@@ -676,74 +684,13 @@
             border-top: 1px solid #34495e;
         }
         
-        /* Modal para ejemplos */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        
-        .modal-overlay.active {
-            display: flex;
-        }
-        
-        .modal-content {
-            background: white;
+        /* Nota para ejemplos */
+        .example-note {
+            background: #e8f4fc;
+            border: 1px solid var(--secondary);
             border-radius: var(--border-radius);
-            width: 90%;
-            max-width: 800px;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            animation: modalFadeIn 0.3s ease;
-        }
-        
-        @keyframes modalFadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .modal-header {
-            padding: 20px;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--primary);
-            color: white;
-            border-radius: var(--border-radius) var(--border-radius) 0 0;
-        }
-        
-        .modal-close {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        .modal-body {
-            padding: 30px;
-        }
-        
-        .modal-body iframe {
-            width: 100%;
-            height: 500px;
-            border: none;
-            border-radius: var(--border-radius);
-        }
-        
-        .example-preview {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: var(--border-radius);
+            padding: 15px 20px;
+            margin: 20px 0;
             text-align: center;
         }
         
@@ -835,15 +782,6 @@
             
             .tabs-content-wrapper {
                 padding: 30px 20px;
-            }
-            
-            .modal-content {
-                width: 95%;
-                height: 95vh;
-            }
-            
-            .modal-body iframe {
-                height: 300px;
             }
         }
     </style>
@@ -1015,7 +953,12 @@
                     <!-- Pestaña 3: Portafolio -->
                     <div class="tab-content" id="tab-portfolio">
                         <h3>Ejemplos de Landing Pages para Diferentes Negocios</h3>
-                        <p>Diseños creados específicamente para el mercado cubano. Haz clic en una categoría para ver ejemplos.</p>
+                        <p class="text-center">Diseños creados específicamente para el mercado cubano. Haz clic en "Ver Ejemplo" para <strong>explorar la landing page completa en una nueva pestaña</strong>.</p>
+                        
+                        <div class="example-note">
+                            <i class="fas fa-external-link-alt" style="color: var(--secondary); margin-right: 10px;"></i>
+                            <strong>Nota:</strong> Cada ejemplo se abre en una nueva pestaña para que puedas navegar por la landing page completa y ver todas sus funcionalidades.
+                        </div>
                         
                         <div class="portfolio-filter">
                             <button class="filter-btn active" data-filter="all">Todos</button>
@@ -1038,11 +981,13 @@
                                     </div>
                                     <h4>Café Aromas de Cuba</h4>
                                     <p>Landing page para cafetería con menú digital, horarios, ubicación y pedidos por WhatsApp.</p>
-                                    <p><strong>Características:</strong> Menú interactivo, galería de fotos, botón de pedidos directo.</p>
+                                    <div class="example-info">
+                                        <p><strong>Incluye:</strong> Menú interactivo, galería de fotos, botones de acción directa, horarios, ubicación y testimonios.</p>
+                                    </div>
                                     <div class="portfolio-buttons">
-                                        <button class="btn-portfolio" onclick="viewExample('cafeteria')">
-                                            <i class="fas fa-eye"></i> Ver Ejemplo
-                                        </button>
+                                        <a href="portafolio/cafeteria/index.html" target="_blank" class="btn-portfolio">
+                                            <i class="fas fa-external-link-alt"></i> Ver Ejemplo Completo
+                                        </a>
                                         <a href="https://wa.me/5351234567?text=Hola,%20quiero%20una%20Landing%20Page%20para%20mi%20cafetería" target="_blank" class="btn btn-whatsapp">
                                             <i class="fab fa-whatsapp"></i> Solicitar Similar
                                         </a>
@@ -1061,11 +1006,13 @@
                                     </div>
                                     <h4>TechFix Reparaciones</h4>
                                     <p>Sitio para taller de reparación de móviles y computadoras con listado de servicios y precios.</p>
-                                    <p><strong>Características:</strong> Lista de precios, garantías, formulario de diagnóstico.</p>
+                                    <div class="example-info">
+                                        <p><strong>Incluye:</strong> Lista de servicios con precios, formulario de diagnóstico, garantía, emergencia técnica y zona de cobertura.</p>
+                                    </div>
                                     <div class="portfolio-buttons">
-                                        <button class="btn-portfolio" onclick="viewExample('taller')">
-                                            <i class="fas fa-eye"></i> Ver Ejemplo
-                                        </button>
+                                        <a href="portafolio/taller/index.html" target="_blank" class="btn-portfolio">
+                                            <i class="fas fa-external-link-alt"></i> Ver Ejemplo Completo
+                                        </a>
                                         <a href="https://wa.me/5351234567?text=Hola,%20quiero%20una%20Landing%20Page%20para%20mi%20taller" target="_blank" class="btn btn-whatsapp">
                                             <i class="fab fa-whatsapp"></i> Solicitar Similar
                                         </a>
@@ -1084,11 +1031,13 @@
                                     </div>
                                     <h4>Boutique Estilo Único</h4>
                                     <p>Vitrina digital para tienda de ropa con catálogo, guía de tallas y contacto directo.</p>
-                                    <p><strong>Características:</strong> Galería de productos, consultas por WhatsApp, catálogo por temporada.</p>
+                                    <div class="example-info">
+                                        <p><strong>Incluye:</strong> Galería de productos, consultas por WhatsApp, catálogo por temporada y políticas de devolución.</p>
+                                    </div>
                                     <div class="portfolio-buttons">
-                                        <button class="btn-portfolio" onclick="viewExample('boutique')">
-                                            <i class="fas fa-eye"></i> Ver Ejemplo
-                                        </button>
+                                        <a href="portafolio/boutique/index.html" target="_blank" class="btn-portfolio">
+                                            <i class="fas fa-external-link-alt"></i> Ver Ejemplo Completo
+                                        </a>
                                         <a href="https://wa.me/5351234567?text=Hola,%20quiero%20una%20Landing%20Page%20para%20mi%20tienda%20de%20ropa" target="_blank" class="btn btn-whatsapp">
                                             <i class="fab fa-whatsapp"></i> Solicitar Similar
                                         </a>
@@ -1107,11 +1056,13 @@
                                     </div>
                                     <h4>Paladar Sabores Criollos</h4>
                                     <p>Página para restaurante con menú completo, horarios y sistema de reservas integrado.</p>
-                                    <p><strong>Características:</strong> Menú con fotos, horarios, reservas online, testimonios.</p>
+                                    <div class="example-info">
+                                        <p><strong>Incluye:</strong> Menú con fotos, horarios, reservas online, testimonios y ubicación con mapa.</p>
+                                    </div>
                                     <div class="portfolio-buttons">
-                                        <button class="btn-portfolio" onclick="viewExample('restaurante')">
-                                            <i class="fas fa-eye"></i> Ver Ejemplo
-                                        </button>
+                                        <a href="portafolio/restaurante/index.html" target="_blank" class="btn-portfolio">
+                                            <i class="fas fa-external-link-alt"></i> Ver Ejemplo Completo
+                                        </a>
                                         <a href="https://wa.me/5351234567?text=Hola,%20quiero%20una%20Landing%20Page%20para%20mi%20restaurante" target="_blank" class="btn btn-whatsapp">
                                             <i class="fab fa-whatsapp"></i> Solicitar Similar
                                         </a>
@@ -1130,11 +1081,13 @@
                                     </div>
                                     <h4>PC Solución</h4>
                                     <p>Landing page para servicio técnico de computadoras con precios, zona de cobertura y diagnóstico online.</p>
-                                    <p><strong>Características:</strong> Diagnóstico online, precios claros, mapa de cobertura, garantía.</p>
+                                    <div class="example-info">
+                                        <p><strong>Incluye:</strong> Diagnóstico online, precios claros, mapa de cobertura, garantía y emergencia técnica.</p>
+                                    </div>
                                     <div class="portfolio-buttons">
-                                        <button class="btn-portfolio" onclick="viewExample('tecnico')">
-                                            <i class="fas fa-eye"></i> Ver Ejemplo
-                                        </button>
+                                        <a href="portafolio/tecnico/index.html" target="_blank" class="btn-portfolio">
+                                            <i class="fas fa-external-link-alt"></i> Ver Ejemplo Completo
+                                        </a>
                                         <a href="https://wa.me/5351234567?text=Hola,%20quiero%20una%20Landing%20Page%20para%20mi%20servicio%20técnico" target="_blank" class="btn btn-whatsapp">
                                             <i class="fab fa-whatsapp"></i> Solicitar Similar
                                         </a>
@@ -1153,11 +1106,13 @@
                                     </div>
                                     <h4>Estudio Sonido Cubano</h4>
                                     <p>Sitio para estudio de grabación con portafolio de artistas, equipamiento y tarifas por hora.</p>
-                                    <p><strong>Características:</strong> Portafolio de artistas, equipamiento, tarifas por hora, contacto directo.</p>
+                                    <div class="example-info">
+                                        <p><strong>Incluye:</strong> Portafolio de artistas, equipamiento, tarifas por hora, contacto directo y galería de trabajos.</p>
+                                    </div>
                                     <div class="portfolio-buttons">
-                                        <button class="btn-portfolio" onclick="viewExample('estudio')">
-                                            <i class="fas fa-eye"></i> Ver Ejemplo
-                                        </button>
+                                        <a href="portafolio/estudio/index.html" target="_blank" class="btn-portfolio">
+                                            <i class="fas fa-external-link-alt"></i> Ver Ejemplo Completo
+                                        </a>
                                         <a href="https://wa.me/5351234567?text=Hola,%20quiero%20una%20Landing%20Page%20para%20mi%20estudio%20de%20grabación" target="_blank" class="btn btn-whatsapp">
                                             <i class="fab fa-whatsapp"></i> Solicitar Similar
                                         </a>
@@ -1168,7 +1123,9 @@
                         
                         <div style="margin-top: 40px; text-align: center;">
                             <p><em>Cada proyecto es único y se personaliza completamente según las necesidades específicas de tu negocio.</em></p>
-                            <a href="https://wa.me/5351234567?text=Hola,%20quiero%20una%20Landing%20Page%20como%20las%20del%20portafolio" target="_blank" class="btn btn-whatsapp">Solicitar un Proyecto Similar</a>
+                            <div class="portfolio-buttons" style="justify-content: center; margin-top: 20px;">
+                                <a href="https://wa.me/5351234567?text=Hola,%20quiero%20una%20Landing%20Page%20como%20las%20del%20portafolio" target="_blank" class="btn btn-whatsapp">Solicitar un Proyecto Personalizado</a>
+                            </div>
                         </div>
                     </div>
                     
@@ -1414,21 +1371,6 @@
         </div>
     </footer>
 
-    <!-- Modal para ver ejemplos -->
-    <div class="modal-overlay" id="exampleModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="modalTitle">Ejemplo de Landing Page</h3>
-                <button class="modal-close" onclick="closeExample()">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div id="modalContent">
-                    <!-- El contenido se cargará dinámicamente -->
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
         // ===== SISTEMA DE PESTAÑAS PRINCIPALES =====
         document.addEventListener('DOMContentLoaded', function() {
@@ -1603,21 +1545,9 @@
         });
         
         // ===== FUNCIONES PARA VER EJEMPLOS =====
+        // Ahora los botones son enlaces directos, no necesitamos JavaScript
+        // pero mantenemos esta función para compatibilidad si hay algún botón que aún use onclick
         window.viewExample = function(exampleType) {
-            const modal = document.getElementById('exampleModal');
-            const modalContent = document.getElementById('modalContent');
-            const modalTitle = document.getElementById('modalTitle');
-            
-            // Títulos según el tipo de ejemplo
-            const titles = {
-                'cafeteria': 'Ejemplo: Cafetería "Aromas de Cuba"',
-                'taller': 'Ejemplo: Taller "TechFix Reparaciones"',
-                'boutique': 'Ejemplo: Boutique "Estilo Único"',
-                'restaurante': 'Ejemplo: Restaurante "Sabores Criollos"',
-                'tecnico': 'Ejemplo: Servicio Técnico "PC Solución"',
-                'estudio': 'Ejemplo: Estudio "Sonido Cubano"'
-            };
-            
             // URLs de los ejemplos (en la carpeta /portafolio/)
             const exampleURLs = {
                 'cafeteria': 'portafolio/cafeteria/index.html',
@@ -1627,127 +1557,15 @@
                 'tecnico': 'portafolio/tecnico/index.html',
                 'estudio': 'portafolio/estudio/index.html'
             };
-            
-            // Contenido de ejemplo si no existe el archivo
-            const fallbackContent = {
-                'cafeteria': `
-                    <div class="example-preview">
-                        <h4><i class="fas fa-coffee"></i> Cafetería "Aromas de Cuba"</h4>
-                        <p>Esta landing page incluye:</p>
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check"></i> Menú digital con fotos de productos</li>
-                            <li><i class="fas fa-check"></i> Horarios de atención</li>
-                            <li><i class="fas fa-check"></i> Ubicación con Google Maps</li>
-                            <li><i class="fas fa-check"></i> Botón de pedidos por WhatsApp</li>
-                            <li><i class="fas fa-check"></i> Galería de fotos del local</li>
-                        </ul>
-                        <p><strong>URL del ejemplo:</strong> ${exampleURLs[exampleType]}</p>
-                        <p>Para ver el ejemplo completo, necesitas crear el archivo en la carpeta: <code>${exampleURLs[exampleType]}</code></p>
-                        <button class="btn" onclick="createExampleFile('${exampleType}')">
-                            <i class="fas fa-code"></i> Crear Archivo de Ejemplo
-                        </button>
-                    </div>
-                `,
-                'taller': `
-                    <div class="example-preview">
-                        <h4><i class="fas fa-tools"></i> Taller "TechFix Reparaciones"</h4>
-                        <p>Esta landing page incluye:</p>
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check"></i> Listado de servicios con precios</li>
-                            <li><i class="fas fa-check"></i> Formulario de diagnóstico</li>
-                            <li><i class="fas fa-check"></i> Garantía de 30 días</li>
-                            <li><i class="fas fa-check"></i> Botón de emergencia por WhatsApp</li>
-                            <li><i class="fas fa-check"></i> Sección de preguntas frecuentes</li>
-                        </ul>
-                        <p><strong>URL del ejemplo:</strong> ${exampleURLs[exampleType]}</p>
-                        <p>Para ver el ejemplo completo, necesitas crear el archivo en la carpeta: <code>${exampleURLs[exampleType]}</code></p>
-                        <button class="btn" onclick="createExampleFile('${exampleType}')">
-                            <i class="fas fa-code"></i> Crear Archivo de Ejemplo
-                        </button>
-                    </div>
-                `,
-                'boutique': `
-                    <div class="example-preview">
-                        <h4><i class="fas fa-tshirt"></i> Boutique "Estilo Único"</h4>
-                        <p>Esta landing page incluye:</p>
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check"></i> Catálogo de temporada</li>
-                            <li><i class="fas fa-check"></i> Guía de tallas</li>
-                            <li><i class="fas fa-check"></i> Galería de looks</li>
-                            <li><i class="fas fa-check"></i> Consultas por WhatsApp/Telegram</li>
-                            <li><i class="fas fa-check"></i> Políticas de devolución</li>
-                        </ul>
-                        <p><strong>URL del ejemplo:</strong> ${exampleURLs[exampleType]}</p>
-                        <p>Para ver el ejemplo completo, necesitas crear el archivo en la carpeta: <code>${exampleURLs[exampleType]}</code></p>
-                        <button class="btn" onclick="createExampleFile('${exampleType}')">
-                            <i class="fas fa-code"></i> Crear Archivo de Ejemplo
-                        </button>
-                    </div>
-                `
-            };
-            
-            // Configurar el modal
-            modalTitle.textContent = titles[exampleType] || 'Ejemplo de Landing Page';
-            
-            // Intentar cargar el ejemplo desde el archivo
-            fetch(exampleURLs[exampleType])
-                .then(response => {
-                    if (response.ok) {
-                        // Si el archivo existe, mostrar en iframe
-                        modalContent.innerHTML = `<iframe src="${exampleURLs[exampleType]}"></iframe>`;
-                    } else {
-                        // Si no existe, mostrar contenido de ejemplo
-                        modalContent.innerHTML = fallbackContent[exampleType] || `
-                            <div class="example-preview">
-                                <h4>Ejemplo de Landing Page</h4>
-                                <p>El archivo de ejemplo no está disponible todavía.</p>
-                                <p>Puedes crearlo en: <code>${exampleURLs[exampleType]}</code></p>
-                            </div>
-                        `;
-                    }
-                })
-                .catch(error => {
-                    // Si hay error de CORS o el archivo no existe
-                    modalContent.innerHTML = fallbackContent[exampleType] || `
-                        <div class="example-preview">
-                            <h4>Ejemplo de Landing Page</h4>
-                            <p>El archivo de ejemplo no está disponible todavía.</p>
-                            <p>Puedes crearlo en: <code>${exampleURLs[exampleType]}</code></p>
-                            <button class="btn" onclick="createExampleFile('${exampleType}')">
-                                <i class="fas fa-code"></i> Crear Archivo de Ejemplo
-                            </button>
-                        </div>
-                    `;
-                });
-            
-            // Mostrar el modal
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        };
-        
-        window.closeExample = function() {
-            const modal = document.getElementById('exampleModal');
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        };
-        
-        window.createExampleFile = function(exampleType) {
-            alert(`Para crear el archivo de ejemplo para "${exampleType}", necesitas:\n\n1. Crear la carpeta: portafolio/${exampleType}/\n2. Crear el archivo: index.html dentro de esa carpeta\n3. Diseñar una landing page específica para ese tipo de negocio\n\nPuedes usar el código HTML de esta página como base y adaptarlo.`);
-        };
-        
-        // Cerrar modal con ESC
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeExample();
+
+            const url = exampleURLs[exampleType];
+            if (url) {
+                // Abrir en una nueva pestaña
+                window.open(url, '_blank');
+            } else {
+                alert('Ejemplo no disponible en este momento.');
             }
-        });
-        
-        // Cerrar modal al hacer clic fuera
-        document.getElementById('exampleModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeExample();
-            }
-        });
+        };
     </script>
 </body>
 </html>
