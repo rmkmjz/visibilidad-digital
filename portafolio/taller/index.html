@@ -3,50 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PC Solución - Reparación de Computadoras y Móviles Expertos</title>
+    <title>PC Solución - Reparación de Computadoras y Móviles</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* ===== VARIABLES Y RESET ===== */
         :root {
-            --azul-oscuro: #1A365D;
-            --azul-medio: #2C5282;
-            --azul-claro: #4299E1;
-            --celeste: #63B3ED;
-            --gris-oscuro: #2D3748;
-            --gris-medio: #4A5568;
-            --gris-claro: #E2E8F0;
-            --blanco: #FFFFFF;
-            --verde: #38A169;
-            --rojo: #E53E3E;
-            --naranja: #DD6B20;
-            --shadow: 0 4px 12px rgba(0,0,0,0.1);
-            --shadow-hover: 0 10px 25px rgba(0,0,0,0.15);
-            --transition: all 0.3s ease;
-            --border-radius: 10px;
+            --azul: #3498db;
+            --verde: #2ecc71;
+            --rojo: #e74c3c;
+            --gris-oscuro: #2c3e50;
+            --gris-claro: #ecf0f1;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F7FAFC;
-            color: var(--gris-oscuro);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--gris-claro);
+            color: #333;
             line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        h1, h2, h3, h4 {
-            font-weight: 700;
-            line-height: 1.2;
         }
         
         .container {
@@ -56,402 +30,75 @@
             padding: 0 20px;
         }
         
-        .btn {
-            display: inline-block;
-            background: var(--azul-claro);
-            color: var(--blanco);
-            padding: 14px 32px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-            border: 2px solid var(--azul-claro);
-            cursor: pointer;
+        /* Header */
+        header {
+            background: linear-gradient(rgba(52, 152, 219, 0.9), rgba(52, 152, 219, 0.9)), url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            color: white;
+            padding: 80px 0 60px;
             text-align: center;
-            font-size: 1rem;
         }
         
-        .btn:hover {
-            background: transparent;
-            color: var(--azul-claro);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Botones */
+        .btn {
+            display: inline-block;
+            background: var(--verde);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 5px;
         }
         
         .btn-whatsapp {
             background: #25D366;
-            border-color: #25D366;
         }
         
-        .btn-whatsapp:hover {
-            color: #25D366;
-        }
-        
-        .section {
-            padding: 80px 0;
-            position: relative;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            position: relative;
-        }
-        
-        .section-title h2 {
-            font-size: 2rem;
-            color: var(--azul-oscuro);
-            margin-bottom: 15px;
-        }
-        
-        .section-title .subtitle {
-            font-size: 1.1rem;
-            color: var(--gris-medio);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .highlight {
-            color: var(--azul-claro);
-            font-weight: 700;
-        }
-        
-        /* ===== HEADER ===== */
-        header {
-            background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--azul-medio) 100%);
-            color: var(--blanco);
-            padding: 100px 0 60px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .logo {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        
-        .logo i {
-            color: var(--celeste);
-        }
-        
-        .header-content h1 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-        }
-        
-        .header-content p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .header-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-        
-        /* ===== NAVEGACIÓN MÓVIL ===== */
-        .mobile-nav-toggle {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background: var(--azul-claro);
-            color: white;
-            border-radius: 50%;
-            border: none;
-            font-size: 1.5rem;
-            z-index: 1001;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .mobile-nav {
-            display: none;
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            background: white;
-            border-radius: var(--border-radius);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            z-index: 1000;
-            width: 200px;
-            overflow: hidden;
-        }
-        
-        .mobile-nav.active {
-            display: block;
-            animation: slideUp 0.3s ease;
-        }
-        
-        @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        
-        .mobile-nav a {
-            display: flex;
-            align-items: center;
-            padding: 15px 20px;
-            color: var(--gris-oscuro);
-            text-decoration: none;
-            border-bottom: 1px solid var(--gris-claro);
-            transition: var(--transition);
-        }
-        
-        .mobile-nav a:last-child {
-            border-bottom: none;
-        }
-        
-        .mobile-nav a:hover {
-            background: var(--gris-claro);
-            color: var(--azul-claro);
-        }
-        
-        .mobile-nav a i {
-            margin-right: 10px;
-            width: 20px;
-            text-align: center;
-        }
-        
-        /* ===== SECCIÓN SERVICIOS ===== */
-        .services-grid {
+        /* Servicios */
+        .services {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
-            margin-top: 30px;
+            margin: 40px 0;
         }
         
         .service-card {
-            background: var(--blanco);
-            border-radius: var(--border-radius);
-            padding: 30px 25px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid var(--gris-claro);
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             text-align: center;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--azul-claro);
         }
         
         .service-icon {
-            width: 70px;
-            height: 70px;
-            background: rgba(66, 153, 225, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 1.8rem;
-            color: var(--azul-claro);
-        }
-        
-        .service-card h3 {
-            font-size: 1.3rem;
-            color: var(--azul-oscuro);
+            font-size: 2.5rem;
+            color: var(--azul);
             margin-bottom: 15px;
         }
         
-        .service-price {
-            font-size: 1.3rem;
-            font-weight: 700;
+        .price {
             color: var(--verde);
-            margin: 15px 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 10px 0;
         }
         
-        /* ===== SECCIÓN DIAGNÓSTICO ===== */
-        .diagnostico-box {
-            background: var(--blanco);
-            border-radius: var(--border-radius);
-            padding: 40px 30px;
-            box-shadow: var(--shadow);
-            margin-top: 30px;
-            text-align: center;
-        }
-        
-        .problemas-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 30px 0;
-        }
-        
-        .problema-item {
-            background: var(--gris-claro);
-            padding: 15px;
-            border-radius: var(--border-radius);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: var(--transition);
-            font-size: 0.95rem;
-        }
-        
-        /* ===== SECCIÓN GARANTÍA ===== */
-        .garantia-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        
-        .garantia-card {
-            background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--azul-medio) 100%);
-            color: var(--blanco);
-            padding: 40px 30px;
-            border-radius: var(--border-radius);
-            text-align: center;
-        }
-        
-        /* ===== SECCIÓN TESTIMONIOS ===== */
-        .testimonial-slider {
-            position: relative;
-            overflow: hidden;
-            margin: 30px 0;
-        }
-        
-        .testimonial-track {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        
-        .testimonial-slide {
-            min-width: 100%;
-            padding: 10px;
-        }
-        
-        .testimonial-card {
-            background: var(--gris-claro);
-            padding: 30px 25px;
-            border-radius: var(--border-radius);
-            position: relative;
-        }
-        
-        .slider-controls {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-        }
-        
-        .slider-btn {
-            background: var(--azul-claro);
-            color: var(--blanco);
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-        }
-        
-        /* ===== SECCIÓN FAQ ===== */
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .faq-item {
-            background: var(--blanco);
-            border-radius: var(--border-radius);
-            margin-bottom: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-        
-        .faq-question {
-            padding: 20px 25px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--blanco);
-            transition: var(--transition);
-        }
-        
-        .faq-answer {
-            padding: 0 25px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-        
-        .faq-answer.open {
-            padding: 20px 25px;
-            max-height: 1000px;
-        }
-        
-        /* ===== SECCIÓN CONTACTO ===== */
-        #contacto {
-            background: var(--azul-oscuro);
-            color: var(--blanco);
-        }
-        
-        .contacto-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        
-        .contacto-form {
-            background: var(--blanco);
-            padding: 30px 25px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-hover);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid var(--gris-claro);
-            border-radius: var(--border-radius);
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-        
-        /* ===== WHATSAPP FLOAT ===== */
+        /* WhatsApp flotante */
         .whatsapp-float {
             position: fixed;
-            bottom: 90px;
+            bottom: 20px;
             right: 20px;
             background: #25D366;
             color: white;
@@ -462,510 +109,82 @@
             align-items: center;
             justify-content: center;
             font-size: 1.8rem;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-            z-index: 999;
-            transition: var(--transition);
             text-decoration: none;
+            z-index: 1000;
         }
         
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-        }
-        
-        /* ===== FOOTER ===== */
-        footer {
-            background: var(--gris-oscuro);
-            color: var(--blanco);
-            padding: 60px 0 30px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .header-content h1 {
-                font-size: 1.8rem;
-            }
-            
-            .logo {
-                font-size: 1.8rem;
-            }
-            
-            .section {
-                padding: 60px 0;
-            }
-            
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .mobile-nav-toggle {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            
-            .header-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .whatsapp-float {
-                bottom: 160px;
+            header { padding: 60px 0 40px; }
+            .logo { font-size: 2rem; }
+            header h1 { font-size: 1.6rem; }
+            .services { grid-template-columns: 1fr; }
+            .whatsapp-float { 
+                bottom: 20px; 
                 right: 20px;
-            }
-            
-            .mobile-nav.active + .whatsapp-float {
-                bottom: 220px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .header-content h1 {
-                font-size: 1.6rem;
-            }
-            
-            .logo {
-                font-size: 1.6rem;
-            }
-            
-            .section-title h2 {
-                font-size: 1.6rem;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .problemas-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .whatsapp-float {
                 width: 50px;
                 height: 50px;
                 font-size: 1.5rem;
-                bottom: 150px;
-                right: 15px;
-            }
-            
-            .mobile-nav-toggle {
-                width: 50px;
-                height: 50px;
-                font-size: 1.3rem;
-                bottom: 15px;
-                right: 15px;
-            }
-            
-            .mobile-nav {
-                bottom: 80px;
-                right: 15px;
-                width: 180px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- WhatsApp Float -->
+    <!-- WhatsApp -->
     <a href="https://wa.me/5351234567?text=Hola%20PC%20Solución,%20necesito%20reparar%20mi%20computadora" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Navegación Móvil -->
-    <button class="mobile-nav-toggle" id="mobileNavToggle">
-        <i class="fas fa-bars"></i>
-    </button>
-    
-    <nav class="mobile-nav" id="mobileNav">
-        <a href="#servicios"><i class="fas fa-laptop-medical"></i> Servicios</a>
-        <a href="#diagnostico"><i class="fas fa-stethoscope"></i> Diagnóstico</a>
-        <a href="#garantia"><i class="fas fa-shield-alt"></i> Garantía</a>
-        <a href="#testimonios"><i class="fas fa-comments"></i> Testimonios</a>
-        <a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a>
-        <a href="#contacto"><i class="fas fa-phone"></i> Contacto</a>
-    </nav>
-
-    <!-- Header / Hero -->
+    <!-- Header -->
     <header>
         <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-laptop-code"></i>
-                    PC Solución
-                </div>
-                <h1>Reparación Profesional de Computadoras y Móviles</h1>
-                <p>Especialistas en diagnóstico y solución de problemas técnicos. Más de 15 años de experiencia reparando todo tipo de dispositivos con garantía certificada.</p>
-                
-                <div class="header-buttons">
-                    <a href="#diagnostico" class="btn">Diagnóstico Gratis</a>
-                    <a href="https://wa.me/5351234567?text=Hola,%20necesito%20reparar%20mi%20dispositivo" class="btn btn-whatsapp" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Emergencia Técnica
-                    </a>
-                </div>
-            </div>
+            <div class="logo">PC Solución</div>
+            <h1>Reparación Profesional de Computadoras y Móviles</h1>
+            <p>Especialistas en diagnóstico y solución de problemas técnicos con garantía certificada</p>
+            <a href="#servicios" class="btn">Ver Servicios</a>
+            <a href="https://wa.me/5351234567" class="btn btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
         </div>
     </header>
 
-    <!-- Sección Servicios -->
-    <section id="servicios" class="section">
+    <!-- Servicios -->
+    <section id="servicios" style="padding: 60px 0;">
         <div class="container">
-            <div class="section-title">
-                <h2>Nuestros Servicios Especializados</h2>
-                <p class="subtitle">Ofrecemos soluciones completas para todos tus dispositivos tecnológicos con precios transparentes y sin sorpresas</p>
-            </div>
-            
-            <div class="services-grid">
-                <!-- Servicio 1 -->
+            <h2 style="text-align: center; margin-bottom: 40px; color: var(--gris-oscuro);">Nuestros Servicios</h2>
+            <div class="services">
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-laptop-medical"></i>
                     </div>
                     <h3>Reparación de Computadoras</h3>
-                    <p>Diagnóstico y reparación de laptops y PCs de escritorio. Cambio de componentes, limpieza interna y optimización.</p>
-                    <div class="service-price">Desde 1,500 CUP</div>
+                    <p>Diagnóstico y reparación de laptops y PCs de escritorio</p>
+                    <div class="price">Desde 1,500 CUP</div>
                 </div>
                 
-                <!-- Servicio 2 -->
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <h3>Reparación de Móviles</h3>
-                    <p>Cambio de pantallas, baterías, conectores de carga, módulos de cámara y reparación de software.</p>
-                    <div class="service-price">Desde 800 CUP</div>
-                </div>
-                
-                <!-- Servicio 3 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-virus"></i>
-                    </div>
-                    <h3>Limpieza de Virus</h3>
-                    <p>Eliminación completa de virus, malware y spyware. Optimización del sistema operativo.</p>
-                    <div class="service-price">Desde 500 CUP</div>
-                </div>
-                
-                <!-- Servicio 4 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>Recuperación de Datos</h3>
-                    <p>Recuperación de archivos eliminados, fotos, documentos y carpetas de discos duros dañados.</p>
-                    <div class="service-price">Desde 2,000 CUP</div>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="https://wa.me/5351234567?text=Hola,%20quiero%20más%20información%20sobre%20sus%20servicios" class="btn btn-whatsapp" target="_blank">
-                    <i class="fab fa-whatsapp"></i> Consultar Todos los Servicios
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Diagnóstico -->
-    <section id="diagnostico" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Diagnóstico Gratuito</h2>
-                <p class="subtitle">Identificamos el problema de tu dispositivo y te damos una solución clara antes de cualquier reparación</p>
-            </div>
-            
-            <div class="diagnostico-box">
-                <h3 style="margin-bottom: 25px; color: var(--azul-oscuro);">¿Tu dispositivo tiene alguno de estos problemas?</h3>
-                
-                <div class="problemas-grid">
-                    <div class="problema-item">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <span>No enciende</span>
-                    </div>
-                    <div class="problema-item">
-                        <i class="fas fa-tachometer-alt"></i>
-                        <span>Muy lento</span>
-                    </div>
-                    <div class="problema-item">
-                        <i class="fas fa-bug"></i>
-                        <span>Tiene virus</span>
-                    </div>
-                    <div class="problema-item">
-                        <i class="fas fa-battery-empty"></i>
-                        <span>No carga</span>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 30px;">
-                    <a href="https://wa.me/5351234567?text=Hola,%20necesito%20un%20diagnóstico%20para%20mi%20dispositivo" class="btn btn-whatsapp" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Solicitar Diagnóstico Gratis
-                    </a>
+                    <p>Cambio de pantallas, baterías y reparación de software</p>
+                    <div class="price">Desde 800 CUP</div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Sección Garantía -->
-    <section id="garantia" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Garantía de Calidad</h2>
-                <p class="subtitle">Tu tranquilidad es nuestra prioridad. Todas nuestras reparaciones incluyen garantía certificada</p>
-            </div>
-            
-            <div class="garantia-content">
-                <div class="garantia-card">
-                    <h3><i class="fas fa-shield-alt"></i> Garantía Certificada</h3>
-                    <p>Trabajamos con los más altos estándares de calidad. Si el problema reaparece dentro del periodo de garantía, lo reparamos sin costo adicional.</p>
-                    <div style="background: var(--verde); color: var(--blanco); padding: 10px 30px; border-radius: 50px; font-size: 1.3rem; font-weight: 700; display: inline-block; margin-top: 20px;">
-                        90 Días de Garantía
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Testimonios -->
-    <section id="testimonios" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Lo Que Dicen Nuestros Clientes</h2>
-                <p class="subtitle">Más de 1,500 clientes satisfechos confían en nuestros servicios técnicos</p>
-            </div>
-            
-            <div class="testimonial-slider" id="testimonialSlider">
-                <div class="testimonial-track" id="testimonialTrack">
-                    <!-- Testimonio 1 -->
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-text">
-                                "Mi laptop tenía un problema grave de sobrecalentamiento y ya estaba pensando en comprar una nueva. PC Solución no solo la reparó, sino que la dejó mejor que nueva."
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 15px; margin-top: 20px;">
-                                <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--azul-claro); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--blanco); font-weight: 700;">
-                                    AC
-                                </div>
-                                <div>
-                                    <h4 style="color: var(--azul-oscuro); margin-bottom: 5px;">Alejandro Castillo</h4>
-                                    <div style="color: var(--naranja);">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="slider-controls">
-                    <button class="slider-btn" id="prevBtn">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="slider-btn" id="nextBtn">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección FAQ -->
-    <section id="faq" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Preguntas Frecuentes</h2>
-                <p class="subtitle">Resolvemos tus dudas más comunes sobre nuestros servicios técnicos</p>
-            </div>
-            
-            <div class="faq-container">
-                <!-- FAQ Item 1 -->
-                <div class="faq-item">
-                    <div class="faq-question">
-                        ¿Cuánto tiempo tarda una reparación?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>El tiempo varía según la complejidad del problema. Reparaciones simples pueden tomar de 1 a 2 horas. Problemas más complejos pueden tomar de 24 a 48 horas.</p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 2 -->
-                <div class="faq-item">
-                    <div class="faq-question">
-                        ¿Los repuestos son originales?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Trabajamos con repuestos de la más alta calidad disponible en el mercado. Para marcas específicas, usamos componentes originales cuando es posible.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Contacto -->
-    <section id="contacto" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2 style="color: var(--celeste);">Contacto Rápido</h2>
-                <p class="subtitle" style="color: rgba(255,255,255,0.8);">Estamos listos para ayudarte con cualquier problema técnico</p>
-            </div>
-            
-            <div class="contacto-content">
-                <div class="contacto-form">
-                    <h3 style="color: var(--azul-oscuro); margin-bottom: 25px;">Envíanos un Mensaje</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="nombre" class="form-control" placeholder="Nombre Completo" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" id="telefono" class="form-control" placeholder="Teléfono / WhatsApp" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="problema" class="form-control" placeholder="Describe tu problema" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="btn" style="width: 100%;">
-                            <i class="fab fa-whatsapp"></i> Enviar por WhatsApp
-                        </button>
-                    </form>
-                </div>
-                
-                <div style="text-align: center;">
-                    <div style="margin-bottom: 30px;">
-                        <h4 style="color: var(--celeste); margin-bottom: 15px;">Contacto Directo</h4>
-                        <p><i class="fab fa-whatsapp"></i> WhatsApp: +53 5123 4567</p>
-                        <p><i class="fas fa-phone"></i> Teléfono: +53 7 123 4567</p>
-                    </div>
-                    <div>
-                        <h4 style="color: var(--celeste); margin-bottom: 15px;">Horario de Atención</h4>
-                        <p>Lunes a Sábado: 8:00 AM - 8:00 PM</p>
-                        <p>Domingos: 9:00 AM - 5:00 PM</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3 style="color: var(--celeste); margin-bottom: 20px;">PC Solución</h3>
-                    <p>Especialistas en reparación de computadoras y dispositivos móviles con más de 15 años de experiencia.</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3 style="color: var(--celeste); margin-bottom: 20px;">Contacto</h3>
-                    <p><i class="fab fa-whatsapp"></i> WhatsApp: +53 5123 4567</p>
-                    <p><i class="fas fa-phone"></i> Teléfono: +53 7 123 4567</p>
-                    <p><i class="fas fa-clock"></i> L-S: 8:00 AM - 8:00 PM</p>
-                </div>
-            </div>
-            
-            <div style="text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; opacity: 0.8;">
-                <p>&copy; 2024 PC Solución. Esta landing page es un ejemplo creado por Visibilidad Digital Cuba</p>
-            </div>
-        </div>
-    </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Navegación móvil
-            const mobileNavToggle = document.getElementById('mobileNavToggle');
-            const mobileNav = document.getElementById('mobileNav');
-            
-            mobileNavToggle.addEventListener('click', () => {
-                mobileNav.classList.toggle('active');
-                mobileNavToggle.innerHTML = mobileNav.classList.contains('active') 
-                    ? '<i class="fas fa-times"></i>' 
-                    : '<i class="fas fa-bars"></i>';
-            });
-            
-            // Cerrar menú al hacer clic en enlace
-            document.querySelectorAll('.mobile-nav a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileNav.classList.remove('active');
-                    mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                });
-            });
-            
-            // FAQ Acordeón
-            const faqQuestions = document.querySelectorAll('.faq-question');
-            
-            faqQuestions.forEach(question => {
-                question.addEventListener('click', () => {
-                    const answer = question.nextElementSibling;
-                    const icon = question.querySelector('i');
-                    
-                    // Cerrar otras respuestas
-                    document.querySelectorAll('.faq-answer.open').forEach(openAnswer => {
-                        if (openAnswer !== answer) {
-                            openAnswer.classList.remove('open');
-                            openAnswer.previousElementSibling.querySelector('i').classList.remove('fa-chevron-up');
-                            openAnswer.previousElementSibling.querySelector('i').classList.add('fa-chevron-down');
-                        }
-                    });
-                    
-                    // Alternar respuesta actual
-                    answer.classList.toggle('open');
-                    
-                    // Cambiar ícono
-                    if (answer.classList.contains('open')) {
-                        icon.classList.remove('fa-chevron-down');
-                        icon.classList.add('fa-chevron-up');
-                    } else {
-                        icon.classList.remove('fa-chevron-up');
-                        icon.classList.add('fa-chevron-down');
-                    }
-                });
-            });
-            
-            // Formulario de contacto
-            const contactForm = document.getElementById('contactForm');
-            
-            contactForm.addEventListener('submit', function(e) {
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
-                const nombre = document.getElementById('nombre').value;
-                const telefono = document.getElementById('telefono').value;
-                const problema = document.getElementById('problema').value;
-                
-                const mensaje = `*Nueva Consulta Técnica*%0A%0A*Nombre:* ${nombre}%0A*Teléfono:* ${telefono}%0A*Problema:* ${problema}`;
-                
-                window.open(`https://wa.me/5351234567?text=${mensaje}`, '_blank');
-                
-                contactForm.reset();
-                alert('¡Gracias! Serás redirigido a WhatsApp para completar tu consulta.');
-            });
-            
-            // Smooth scroll
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        e.preventDefault();
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>

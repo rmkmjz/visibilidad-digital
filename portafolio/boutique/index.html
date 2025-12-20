@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Café Aromas de Cuba - La mejor cafetería</title>
+    <title>Boutique Estilo Único - Moda y Estilo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --cafe: #8B4513;
-            --cafe-claro: #D2691E;
-            --crema: #F5DEB3;
-            --dorado: #DAA520;
+            --rosa: #e84393;
+            --morado: #9b59b6;
+            --gris-oscuro: #2c3e50;
+            --gris-claro: #ecf0f1;
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--crema);
+            background: white;
             color: #333;
             line-height: 1.6;
         }
@@ -31,7 +31,7 @@
         
         /* Header */
         header {
-            background: linear-gradient(rgba(139, 69, 19, 0.9), rgba(139, 69, 19, 0.9)), url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
             color: white;
             padding: 80px 0 60px;
@@ -42,36 +42,36 @@
             font-size: 2.5rem;
             font-weight: bold;
             margin-bottom: 20px;
-            color: var(--dorado);
+            color: var(--rosa);
         }
         
-        /* Menú */
-        .menu-grid {
+        /* Productos */
+        .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
             margin: 40px 0;
         }
         
-        .menu-item {
+        .product-card {
             background: white;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
-        .menu-img {
-            height: 200px;
+        .product-img {
+            height: 250px;
             background-size: cover;
             background-position: center;
         }
         
-        .menu-content {
+        .product-content {
             padding: 20px;
         }
         
-        .menu-price {
-            color: var(--cafe);
+        .product-price {
+            color: var(--rosa);
             font-size: 1.3rem;
             font-weight: bold;
             margin: 10px 0;
@@ -98,7 +98,7 @@
         @media (max-width: 768px) {
             header { padding: 60px 0 40px; }
             .logo { font-size: 2rem; }
-            .menu-grid { grid-template-columns: 1fr; }
+            .products-grid { grid-template-columns: 1fr; }
             .whatsapp-float { 
                 width: 50px;
                 height: 50px;
@@ -109,39 +109,39 @@
 </head>
 <body>
     <!-- WhatsApp -->
-    <a href="https://wa.me/5351234567?text=Hola%20Café%20Aromas%20de%20Cuba,%20quiero%20hacer%20un%20pedido" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/5351234567?text=Hola%20Boutique%20Estilo%20Único,%20quiero%20consultar%20sobre%20sus%20productos" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- Header -->
     <header>
         <div class="container">
-            <div class="logo">Café Aromas de Cuba</div>
-            <h1>El Auténtico Sabor del Café Cubano</h1>
-            <p>Desde 1998 sirviendo el mejor café de la ciudad</p>
+            <div class="logo">Boutique Estilo Único</div>
+            <h1>Moda que Expresa tu Personalidad</h1>
+            <p>Ropa de calidad, diseños exclusivos y asesoramiento personalizado</p>
         </div>
     </header>
 
-    <!-- Menú -->
+    <!-- Productos -->
     <section style="padding: 60px 0;">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px; color: var(--cafe);">Nuestro Menú</h2>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="menu-content">
-                        <h3>Café Cubano</h3>
-                        <p>El auténtico café cubano, fuerte y aromático</p>
-                        <div class="menu-price">25 CUP</div>
+            <h2 style="text-align: center; margin-bottom: 40px; color: var(--gris-oscuro);">Nuestros Productos</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="product-content">
+                        <h3>Vestido de Noche</h3>
+                        <p>Vestido largo en seda natural con detalles en encaje. Tallas S, M, L.</p>
+                        <div class="product-price">1,200 CUP</div>
                     </div>
                 </div>
                 
-                <div class="menu-item">
-                    <div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1570196911496-66bd58a5b7b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="menu-content">
-                        <h3>Cortadito</h3>
-                        <p>Café espresso con un toque de leche espumada</p>
-                        <div class="menu-price">30 CUP</div>
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="product-content">
+                        <h3>Blusa de Encaje</h3>
+                        <p>Blusa casual perfecta para el día. Material transpirable.</p>
+                        <div class="product-price">450 CUP</div>
                     </div>
                 </div>
             </div>
